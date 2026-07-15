@@ -1,0 +1,91 @@
+.khadija-hero-root{
+  font-family: Arial, sans-serif;
+}
+
+.kh-hero{
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.2fr 0.9fr;
+  color: #171310;
+}
+
+.kh-main{
+  padding: 6vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.kh-eyebrow{
+  font-family: Courier New, monospace;
+  font-size: 12.5px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #96723f;
+  margin-bottom: 24px;
+}
+
+.kh-hero h1{
+  font-family: Georgia, serif;
+  font-weight: 500;
+  font-size: 50px;
+  line-height: 1.1;
+  color: #171310;
+  max-width: 500px;
+  margin: 0;
+}
+
+.kh-hero h1 em{
+  font-style: italic;
+  color: #96723f;
+  font-weight: 400;
+}
+
+.kh-lede{
+  margin-top: 24px;
+  font-size: 17px;
+  line-height: 1.75;
+  color: #5c554c;
+  max-width: 600px;
+}
+
+.kh-lede strong{
+  color: #171310;
+  font-weight: 600;
+}
+
+.kh-pillars{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
+}
+
+.kh-pill{
+  font-family: Courier New, monospace;
+  font-size: 11.5px;
+  letter-spacing: 1px;
+  padding: 8px 14px;
+  border: 1px solid #e0ddd8;
+  border-radius: 2px;
+  color: #b8935f;
+  background: rgba(0,0,0,0.03);
+}
+
+.kh-image{
+  overflow: visible;
+}
+
+.kh-image img{
+  display: block;
+  width: 90%;
+  height: 80%;
+  margin-top: 75px;
+}
+
+@media (max-width: 860px){
+  .kh-hero{ grid-template-columns: 1fr; }
+  .kh-image{ border-left: none; border-top: 1px solid #e0ddd8; min-height: 45vh; order: -1; }
+  .kh-main{ padding: 10vw 7vw; }
+  .kh-hero h1{ max-width: none; }
+}

@@ -1,0 +1,161 @@
+.tc-root{
+  font-family: Arial, sans-serif;
+  text-align: center;
+  padding: 6vw 6vw 5vw;
+  margin-top:100px;
+  background: linear-gradient(160deg, #244846 0%, #2a4843 45%, #273342 100%);
+}
+
+.tc-eyebrow{
+  font-family: "Courier New", monospace;
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: #d4ac7a;
+  margin: 0 0 14px;
+}
+
+.tc-heading{
+  font-family: Georgia, serif;
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1.3;
+  color: #ffffff;
+  max-width: 20ch;
+  margin: 0 auto 50px;
+}
+
+.tc-heading span{
+  color: #d4ac7a;
+}
+
+.tc-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.tc-card{
+  background: #f7f3ea;
+  border-radius: 20px;
+  padding: 48px 50px;
+  width: 80%;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+}
+
+.tc-quote-mark{
+  font-family: Georgia, serif;
+  font-size: 46px;
+  color: #b8935f;
+  line-height: 1;
+  display: block;
+  margin-bottom: 14px;
+}
+
+.tc-quote{
+  font-family: Georgia, serif;
+  font-size: 20px;
+  line-height: 1.7;
+  color: #171310;
+  margin: 0 0 30px;
+}
+
+.tc-divider{
+  width: 50px;
+  height: 2px;
+  background: #b8935f;
+  margin: 0 auto 26px;
+}
+
+.tc-avatar{
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: #171310;
+  color: #d4ac7a;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 14px;
+  border: 2px solid #b8935f;
+}
+
+.tc-name{
+  font-family: Georgia, serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #171310;
+  margin: 0 0 4px;
+}
+
+.tc-role{
+  font-size: 13px;
+  color: #96723f;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.tc-location{
+  font-size: 13px;
+  color: #7a746a;
+  margin: 0;
+}
+
+.tc-arrow{
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.12);
+  color: #ffffff;
+  font-size: 26px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.tc-arrow:hover{
+  background: #b8935f;
+  transform: scale(1.08);
+}
+
+.tc-dots{
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 34px;
+}
+
+.tc-dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255,255,255,0.3);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.25s ease, width 0.25s ease;
+}
+
+.tc-dot-active{
+  background: #d4ac7a;
+  width: 22px;
+  border-radius: 4px;
+}
+
+@media (max-width: 640px){
+  .tc-heading{ font-size: 26px; }
+  .tc-card{ padding: 36px 26px; }
+  .tc-quote{ font-size: 17px; }
+  .tc-arrow{ width: 36px; height: 36px; font-size: 20px; }
+  .tc-wrapper{ gap: 10px; }
+}

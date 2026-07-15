@@ -1,0 +1,394 @@
+.section {
+  width: 100%;
+  padding: 20px 0 60px;
+  font-family: Arial, sans-serif;
+  overflow: hidden;
+  margin-top: 100px;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.header1 {
+  display: block;             
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 20px;
+  background: none;
+  box-shadow: none;
+  border-radius: 0;
+}
+
+.tagline {
+  display: block;
+  font-family: 'Courier New', monospace;
+  color: #96723f;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.title {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: 52px;
+  font-weight: 500;
+  color: #171310;
+  margin: 0 0 12px;
+  line-height: 1;
+}
+
+.underline1 {
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: #b8935f;
+  border-radius: 2px;
+  margin: 0 auto 20px;  
+}
+
+.subtitle {
+  display: block;
+  font-size: 16px;
+  color: #5c554c;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.7;
+  font-style: italic;
+}
+
+/* ===== SLIDER ===== */
+.sliderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.track {
+  display: flex;
+  gap: 16px;
+  margin-top: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding: 20px 4px 30px;
+  align-items: center;
+}
+
+.track::-webkit-scrollbar {
+  display: none;
+}
+
+.cardSmall {
+  min-width: 220px;
+  max-width: 220px;
+  height: 280px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+}
+
+.cardSmall:hover {
+  transform: translateY(-5px);
+}
+
+.cardBig {
+  min-width: 300px;
+  max-width: 300px;
+  height: 350px;
+  overflow: hidden;
+  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.15);
+  scroll-snap-align: center;
+  flex-shrink: 0;
+  position: relative;
+  transition: transform 0.3s ease;
+  border-radius: 12px;
+}
+
+.cardBig:hover {
+  transform: translateY(-7px);
+}
+
+.imgBox {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.imgBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  display: block;
+}
+
+.cardSmall:hover .imgBox img,
+.cardBig:hover .imgBox img {
+  transform: scale(1.06);
+}
+
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: transparent;
+  padding: 20px 16px 16px;
+}
+
+.cardTitle {
+  font-family: Georgia, serif;
+  font-size: 17px;
+  font-weight: 500;
+  color: #fff;
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #b8935f; 
+  display: inline-block;
+}
+
+.cardDesc {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin: 8px 0 0;
+}
+/* ===== ARROWS ===== */
+.arrowLeft,
+.arrowRight {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid #e0ddd8;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 22px;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #171310;
+  flex-shrink: 0;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.3s ease, transform 0.3s ease, background 0.3s;
+  pointer-events: none;
+}
+
+.arrowVisible {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: all;
+}
+
+.arrowLeft:hover,
+.arrowRight:hover {
+  background: #b8935f;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+/* ===== QUOTE ===== */
+.quoteSection {
+  text-align: center;
+  padding: 30px 200px;
+  max-width: 100%;
+  margin: 20px 0 0;
+}
+
+.quoteMark {
+  font-size: 80px;
+  color: #b8935f;
+  font-family: Georgia, serif;
+  line-height: 1;
+  opacity: 0.6;
+  display: inline;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.quoteText {
+  font-family: Georgia, serif;
+  font-size: 22px;
+  font-style: italic;
+  color: #171310;
+  line-height: 1.8;
+  margin: 0 0 24px;
+  display: inline;
+}
+
+.quoteLine {
+  width: 60px;
+  height: 3px;
+  background: #b8935f;
+  border-radius: 2px;
+  margin: 24px auto 16px;
+}
+
+.quoteAuthor {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #96723f;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  display: block;
+}
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+   ============================================================ */
+
+@media (max-width: 1279px) {
+  .title { font-size: 44px; }
+  .quoteSection { padding: 30px 100px; }
+  .quoteText { font-size: 20px; }
+}
+
+@media (max-width: 1023px) {
+  .title { font-size: 38px; }
+  .subtitle { font-size: 15px; }
+
+  .cardSmall {
+    min-width: 190px;
+    max-width: 190px;
+    height: 250px;
+  }
+
+  .cardBig {
+    min-width: 260px;
+    max-width: 260px;
+    height: 310px;
+  }
+
+  .quoteSection { padding: 30px 60px; }
+  .quoteText { font-size: 18px; }
+  .quoteMark { font-size: 60px; }
+}
+
+@media (max-width: 899px) {
+  .section { margin-top: -20px; }
+  .title { font-size: 34px; }
+  .header { margin-bottom: 36px; }
+
+  .arrowLeft,
+  .arrowRight {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .cardSmall {
+    min-width: 170px;
+    max-width: 170px;
+    height: 230px;
+  }
+
+  .cardBig {
+    min-width: 230px;
+    max-width: 230px;
+    height: 285px;
+  }
+
+  .cardTitle { font-size: 14px; }
+  .cardDesc { font-size: 11px; }
+
+  .quoteSection { padding: 24px 40px; }
+  .quoteText { font-size: 16px; }
+  .quoteMark { font-size: 50px; }
+}
+
+@media (max-width: 767px) {
+  .section { padding: 16px 0 40px; margin-top: 0; }
+  .header { margin-bottom: 28px; padding: 0 16px; }
+
+  .title { font-size: 28px; }
+  .tagline { font-size: 12px; letter-spacing: 2px; }
+  .subtitle { font-size: 14px; }
+
+  .arrowLeft,
+  .arrowRight {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+    width: 36px;
+    height: 36px;
+    font-size: 16px;
+  }
+
+  .sliderWrapper { gap: 8px; padding: 0 8px; }
+
+  .cardSmall,
+  .cardBig {
+    min-width: 200px;
+    max-width: 200px;
+    height: 260px;
+  }
+
+  .track { gap: 12px; padding: 12px 4px 20px; }
+
+  .cardTitle { font-size: 14px; }
+  .cardDesc { font-size: 11px; line-height: 1.5; }
+
+  .quoteSection { padding: 20px 20px; }
+  .quoteText { font-size: 15px; line-height: 1.7; }
+  .quoteMark { font-size: 44px; }
+  .quoteAuthor { font-size: 12px; }
+}
+
+@media (max-width: 480px) {
+  .title { font-size: 24px; }
+  .subtitle { font-size: 13px; }
+
+  .arrowLeft,
+  .arrowRight {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+
+  .cardSmall,
+  .cardBig {
+    min-width: 170px;
+    max-width: 170px;
+    height: 230px;
+  }
+
+  .cardTitle { font-size: 13px; }
+  .cardDesc { font-size: 10px; }
+
+  .quoteSection { padding: 16px 16px; }
+  .quoteText { font-size: 13px; }
+  .quoteMark { font-size: 36px; }
+}
+
+@media (max-width: 360px) {
+  .title { font-size: 22px; }
+
+  .cardSmall,
+  .cardBig {
+    min-width: 150px;
+    max-width: 150px;
+    height: 210px;
+  }
+
+  .arrowLeft,
+  .arrowRight {
+    width: 28px;
+    height: 28px;
+    font-size: 12px;
+  }
+}
