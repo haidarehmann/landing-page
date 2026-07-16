@@ -1,11 +1,17 @@
 .about-root{
   font-family: Arial, sans-serif;
   padding: 6vw;
+  box-sizing: border-box;
+}
+
+.about-root *{
+  box-sizing: border-box;
 }
 
 .about-box{
+  position: relative;
   max-width: 800px;
-  height: 530px;
+  min-height: auto;
   margin: 0 auto;
   background: #ffffff;
   border: 1px solid #e0ddd8;
@@ -16,26 +22,28 @@
 }
 
 .about-icon{
-  font-size:70px;
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  font-size: 70px;
   color: #b8935f;
-  margin-bottom: -20px;
-  margin-left:570px;
 }
 
 .about-eyebrow{
-  font-family: Courier New, monospace;
+  font-family: 'Courier New', monospace;
   font-size: 14px;
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #96723f;
-  margin-top: -48px;
+  margin-top: 0;
   margin-bottom: 25px;
+  max-width: 60%;      /* icon ke sath text overlap na ho */
 }
 
 .about-box h2{
   font-family: Georgia, serif;
   font-weight: 500;
-  font-size: 34px;
+  font-size: clamp(24px, 3.5vw, 34px);
   line-height: 1.40;
   color: #171310;
   margin: 0 0 26px 0;
@@ -58,7 +66,36 @@
   font-weight: 600;
 }
 
+/* Tablet / mobile -- icon position same rehti hai (top-right), sirf size chhoti hoti hai */
 @media (max-width: 640px){
-  .about-box{ padding: 32px 24px; }
-  .about-box h2{ font-size: 26px; }
+  .about-box{ padding: 30px 20px; }
+
+  .about-icon{
+    top: 24px;
+    right: 20px;
+    font-size: 42px;
+  }
+
+  .about-eyebrow{
+    max-width: 55%;      /* choti screen pe bhi icon ke sath overlap na ho */
+    margin-top: 0;
+  }
+
+  .about-box h2{ font-size: 24px; max-width: none; }
+}
+
+/* Chhote phones */
+@media (max-width: 400px){
+  .about-root{ padding: 8vw 4vw; }
+  .about-box{ padding: 22px 16px; border-radius: 10px; }
+
+  .about-icon{
+    top: 10px;
+    right: 50px;
+    font-size: 32px;
+  }
+
+  .about-eyebrow{ max-width: 50%; font-size: 12px; }
+  .about-box h2{ font-size: 21px; }
+  .about-box p{ font-size: 14px; }
 }

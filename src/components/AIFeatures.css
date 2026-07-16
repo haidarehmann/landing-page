@@ -1,9 +1,15 @@
 .khadija-hero-root{
   font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.khadija-hero-root *{
+  box-sizing: border-box;
 }
 
 .kh-hero{
   min-height: 100vh;
+  min-height: 100svh;   /* mobile browser address-bar jump fix */
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
   color: #171310;
@@ -14,11 +20,12 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  min-width: 0;          /* text overflow safety inside grid column */
 }
 
 .kh-eyebrow{
-  font-family: Courier New, monospace;
-  font-size: 12.5px;
+  font-family: 'Courier New', monospace;
+  font-size: clamp(11px, 1.1vw, 12.5px);
   letter-spacing: 2px;
   text-transform: uppercase;
   color: #96723f;
@@ -28,11 +35,12 @@
 .kh-hero h1{
   font-family: Georgia, serif;
   font-weight: 500;
-  font-size: 50px;
-  line-height: 1.1;
+  font-size: clamp(28px, 4.8vw, 50px);
+  line-height: 1.15;
   color: #171310;
   max-width: 500px;
   margin: 0;
+  word-wrap: break-word;
 }
 
 .kh-hero h1 em{
@@ -43,7 +51,7 @@
 
 .kh-lede{
   margin-top: 24px;
-  font-size: 17px;
+  font-size: clamp(14.5px, 1.5vw, 17px);
   line-height: 1.75;
   color: #5c554c;
   max-width: 600px;
@@ -62,7 +70,7 @@
 }
 
 .kh-pill{
-  font-family: Courier New, monospace;
+  font-family: 'Courier New', monospace;
   font-size: 11.5px;
   letter-spacing: 1px;
   padding: 8px 14px;
@@ -70,22 +78,61 @@
   border-radius: 2px;
   color: #b8935f;
   background: rgba(0,0,0,0.03);
+  white-space: nowrap;
 }
 
+/* Image side */
 .kh-image{
-  overflow: visible;
+  overflow: hidden;      /* visible se hidden -- image ab side se bahar nahi chalke gi */
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .kh-image img{
   display: block;
   width: 90%;
-  height: 80%;
-  margin-top: 75px;
+  height: auto;           /* fixed % height hataya -- ab image natural ratio mein rahegi, stretch nahi hogi */
+  max-height: 80%;
+  margin-top: clamp(20px, 6vw, 75px);
+  object-fit: cover;
+  border-radius: 4px;
 }
 
+/* Tablet aur neeche: stack ho jata hai */
 @media (max-width: 860px){
   .kh-hero{ grid-template-columns: 1fr; }
-  .kh-image{ border-left: none; border-top: 1px solid #e0ddd8; min-height: 45vh; order: -1; }
+
+  .kh-image{
+    border-left: none;
+    border-top: 1px solid #e0ddd8;
+    min-height: 45vh;
+    order: -1;             /* image upar, text neeche */
+  }
+
+  .kh-image img{
+    width: 100%;
+    height: 100%;
+    max-height: none;
+    margin-top: 0;
+    object-fit: cover;     
+    border-radius: 0;
+  }
+
   .kh-main{ padding: 10vw 7vw; }
   .kh-hero h1{ max-width: none; }
+}
+
+/* Chhote phones */
+@media (max-width: 480px){
+  .kh-main{ padding: 9vw 6vw; }
+  .kh-hero h1{ font-size: clamp(26px, 8vw, 32px); }
+  .kh-lede{ font-size: 14.5px; }
+  .kh-pillars{ gap: 8px; margin-top: 22px; }
+  .kh-pill{
+    font-size: 10.5px;
+    padding: 6px 10px;
+  }
+  .kh-image{ min-height: 35vh; }
 }

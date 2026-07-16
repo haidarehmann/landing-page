@@ -2,12 +2,18 @@
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   padding: 60px 20px;
   text-align: center;
-  margin-top:75px;
+  margin-top: clamp(30px, 7vw, 75px);
+  box-sizing: border-box;
+}
+
+.coasts-root *{
+  box-sizing: border-box;
 }
 
 .coasts-title-area {
   max-width: 600px;
   margin: 0 auto 40px;
+  padding: 0 10px;
 }
 
 .coasts-tag {
@@ -23,7 +29,7 @@
 .coasts-heading {
   font-family: Georgia, serif;
   font-weight: 500;
-  font-size: 34px;
+  font-size: clamp(24px, 4.5vw, 34px);
   color: #171310;
   margin: 0 0 15px 0;
 }
@@ -51,15 +57,17 @@
   margin: 0 auto;
   gap: 20px;
   position: relative;
+  width: 100%;
 }
 
 .coasts-box {
   background: #ffffff;
   border: 1px solid #e2e8f0;
-  border-radius: 40px; 
+  border-radius: 40px;
   padding: 50px 40px;
   max-width: 700px;
   width: 100%;
+  min-width: 0;
   box-shadow: 0 15px 45px rgba(0, 0, 0, 0.04);
   display: flex;
   flex-direction: column;
@@ -100,6 +108,7 @@
   align-items: center;
   justify-content: center;
   box-shadow: 0 8px 16px rgba(212, 172, 122, 0.2);
+  flex-shrink: 0;
 }
 
 .user-info h3 {
@@ -121,6 +130,7 @@
   border: 1px solid #e2e8f0;
   width: 50px;
   height: 50px;
+  min-width: 50px;
   border-radius: 50%;
   font-size: 24px;
   color: #1e293b;
@@ -131,11 +141,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   transition: all 0.2s ease;
   user-select: none;
+  flex-shrink: 0;
 }
 
 .nav-btn:hover {
   background: #b8935f;
-  color:#fff;
+  color: #fff;
   transform: scale(1.08);
 }
 
@@ -151,36 +162,65 @@
   height: 10px;
   border-radius: 50%;
   border: none;
-  background-color: rgba(23, 19, 16, 0.2); 
+  background-color: rgba(23, 19, 16, 0.2);
   cursor: pointer;
   transition: all 0.3s ease;
   padding: 0;
 }
 
-
 .active-dot {
-  background-color: #d4ac7a; 
-  width: 25px; 
+  background-color: #d4ac7a;
+  width: 25px;
   border-radius: 5px;
 }
 
-/* Responsive Mobile  */
+/* Tablet */
+@media (max-width: 860px) {
+  .slider-container{ gap: 12px; }
+  .coasts-box{ padding: 40px 28px; }
+  .nav-btn{ width: 44px; height: 44px; min-width: 44px; font-size: 20px; }
+}
+
+/* Mobile -- arrows ab bhi visible rahenge, row layout mein */
 @media (max-width: 600px) {
+  .coasts-root{ padding: 45px 12px; }
+
   .slider-container {
-    flex-direction: column-reverse;
-    gap: 15px;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
   }
-  
+
   .coasts-box {
-    padding: 30px 20px;
-    border-radius: 25px;
+    padding: 26px 16px;
+    border-radius: 20px;
   }
 
   .card-desc {
-    font-size: 15px;
+    font-size: 14.5px;
+    margin-bottom: 24px;
   }
 
   .nav-btn {
-    display: none; 
+    width: 36px;
+    height: 36px;
+    min-width: 36px;
+    font-size: 18px;
   }
+
+  .user-badge{
+    width: 44px;
+    height: 44px;
+    font-size: 14px;
+  }
+}
+
+/* Chhote phones */
+@media (max-width: 380px) {
+  .coasts-root{ padding: 35px 8px; }
+  .slider-container{ gap: 6px; }
+  .coasts-box{ padding: 20px 12px; border-radius: 16px; }
+  .card-desc{ font-size: 13.5px; }
+  .coasts-heading{ font-size: 22px; }
+  .nav-btn{ width: 32px; height: 32px; min-width: 32px; font-size: 16px; }
 }
