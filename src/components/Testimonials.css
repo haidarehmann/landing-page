@@ -2,13 +2,74 @@
   font-family: Arial, sans-serif;
   text-align: center;
   padding: 6vw 6vw 5vw;
-  margin-top: clamp(40px, 8vw, 100px);
-  background: linear-gradient(160deg, #244846 0%, #2a4843 45%, #273342 100%);
+  margin-top: -10px;
   box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+
+ background:
+  /* Top Right Golden Glow */
+  radial-gradient(
+    circle at top right,
+    rgba(214,183,118,0.45) 0%,
+    rgba(214,183,118,0.20) 28%,
+    transparent 58%
+  ),
+
+  /* Bottom Left Golden Glow (More Visible) */
+  radial-gradient(
+    circle at bottom left,
+    rgba(214,183,118,0.55) 0%,
+    rgba(214,183,118,0.28) 35%,
+    transparent 65%
+  ),
+
+  /* Base Green Background */
+  linear-gradient(
+    160deg,
+    #244846 0%,
+    #2a4843 45%,
+    #273342 100%
+  );
+}
+.tc-root::before{
+  content: "";
+  position: absolute;
+  top: -180px;
+  right: -180px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(212,175,55,0.22) 0%,
+    rgba(212,175,55,0.10) 45%,
+    transparent 75%
+  );
+  pointer-events: none;
+}
+
+.tc-root::after{
+  content: "";
+  position: absolute;
+  bottom: -180px;
+  left: -180px;
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(214,183,118,0.30) 0%,
+    rgba(214,183,118,0.15) 45%,
+    transparent 75%
+  );
+  pointer-events: none;
 }
 
 .tc-root *{
   box-sizing: border-box;
+  position: relative;
+  z-index: 2;
 }
 
 .tc-eyebrow{
@@ -23,7 +84,7 @@
 .tc-heading{
   font-family: Georgia, serif;
   font-weight: 500;
-  font-size: clamp(22px, 4vw, 34px);
+  font-size: clamp(22px,4vw,34px);
   line-height: 1.3;
   color: #ffffff;
   max-width: 20ch;
@@ -44,13 +105,26 @@
 }
 
 .tc-card{
-  background: #f7f3ea;
-  border-radius: 20px;
-  padding: 48px 50px;
-  width: 100%;         /* 80% ki jagah 100% -- flex gap khud spacing sambhal leta hai */
+  width: 100%;
   max-width: 560px;
-  min-width: 0;         /* flex shrink ke liye zaroori -- overflow fix */
-  box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+  min-width: 0;
+
+  padding: 48px 50px;
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    135deg,
+    #fffdf9 0%,
+    #f8f1e3 60%,
+    #f1ddb5 100%
+  );
+
+  border: 1px solid rgba(184,147,95,.25);
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.28),
+    0 10px 30px rgba(184,147,95,.15);
 }
 
 .tc-quote-mark{
@@ -64,7 +138,7 @@
 
 .tc-quote{
   font-family: Georgia, serif;
-  font-size: clamp(15px, 2.2vw, 20px);
+  font-size: clamp(15px,2.2vw,20px);
   line-height: 1.7;
   color: #171310;
   margin: 0 0 30px;
@@ -83,15 +157,17 @@
   border-radius: 50%;
   background: #171310;
   color: #d4ac7a;
-  font-family: Georgia, serif;
-  font-weight: 700;
-  font-size: 20px;
+  border: 2px solid #b8935f;
+
   display: flex;
   align-items: center;
   justify-content: center;
+
+  font-family: Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+
   margin: 0 auto 14px;
-  border: 2px solid #b8935f;
-  flex-shrink: 0;
 }
 
 .tc-name{
@@ -104,8 +180,8 @@
 
 .tc-role{
   font-size: 13px;
-  color: #96723f;
   font-weight: 600;
+  color: #96723f;
   margin: 0 0 2px;
 }
 
@@ -116,33 +192,39 @@
 }
 
 .tc-arrow{
-  width: 44px;
-  height: 44px;
-  min-width: 44px;
+  width: 46px;
+  height: 46px;
+  min-width: 46px;
+
   border-radius: 50%;
-  border: none;
-  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(212,172,122,.35);
+
+  background: rgba(255,255,255,.10);
+  backdrop-filter: blur(10px);
+
   color: #ffffff;
   font-size: 26px;
   cursor: pointer;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  transition: background 0.25s ease, transform 0.25s ease;
+
+  transition: all .3s ease;
 }
 
 .tc-arrow:hover{
   background: #b8935f;
+  border-color: #d4ac7a;
   transform: scale(1.08);
 }
 
 .tc-dots{
   display: flex;
-  flex-wrap: wrap;         /* 6 dots choti screen pe wrap ho jayen agar zaroorat pare */
   justify-content: center;
   gap: 8px;
   margin-top: 34px;
+  flex-wrap: wrap;
 }
 
 .tc-dot{
@@ -150,43 +232,99 @@
   height: 8px;
   border-radius: 50%;
   border: none;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,.30);
   cursor: pointer;
-  padding: 0;
-  transition: background 0.25s ease, width 0.25s ease;
+  transition: .3s;
 }
 
 .tc-dot-active{
-  background: #d4ac7a;
   width: 22px;
   border-radius: 4px;
+  background: #d4ac7a;
 }
 
-/* Tablet */
-@media (max-width: 780px){
-  .tc-wrapper{ gap: 16px; }
-  .tc-card{ padding: 40px 34px; }
+@media (max-width:780px){
+
+  .tc-wrapper{
+    gap:16px;
+  }
+
+  .tc-card{
+    padding:40px 34px;
+  }
+
 }
 
-/* Mobile */
-@media (max-width: 640px){
-  .tc-root{ padding: 12vw 5vw 8vw; }
-  .tc-heading{ font-size: 24px; margin-bottom: 36px; }
-  .tc-card{ padding: 34px 22px; border-radius: 16px; }
-  .tc-quote{ font-size: 15.5px; margin-bottom: 22px; }
-  .tc-arrow{ width: 36px; height: 36px; min-width: 36px; font-size: 20px; }
-  .tc-wrapper{ gap: 8px; }
-  .tc-avatar{ width: 44px; height: 44px; font-size: 17px; }
+@media (max-width:640px){
+
+  .tc-root{
+    padding:12vw 5vw 8vw;
+  }
+
+  .tc-heading{
+    font-size:24px;
+    margin-bottom:36px;
+  }
+
+  .tc-card{
+    padding:34px 22px;
+    border-radius:16px;
+  }
+
+  .tc-quote{
+    font-size:15px;
+  }
+
+  .tc-arrow{
+    width:38px;
+    height:38px;
+    min-width:38px;
+    font-size:20px;
+  }
+
+  .tc-wrapper{
+    gap:8px;
+  }
+
+  .tc-avatar{
+    width:44px;
+    height:44px;
+    font-size:17px;
+  }
+
 }
 
-/* Chhote phones */
-@media (max-width: 380px){
-  .tc-root{ padding: 10vw 4vw 6vw; }
-  .tc-card{ padding: 26px 16px; border-radius: 14px; }
-  .tc-quote{ font-size: 14px; }
-  .tc-quote-mark{ font-size: 36px; }
-  .tc-arrow{ width: 30px; height: 30px; min-width: 30px; font-size: 16px; }
-  .tc-wrapper{ gap: 6px; }
-  .tc-heading{ font-size: 21px; }
-  .tc-name{ font-size: 16px; }
+@media (max-width:380px){
+
+  .tc-root{
+    padding:10vw 4vw 6vw;
+  }
+
+  .tc-card{
+    padding:26px 16px;
+  }
+
+  .tc-heading{
+    font-size:21px;
+  }
+
+  .tc-quote{
+    font-size:14px;
+  }
+
+  .tc-quote-mark{
+    font-size:36px;
+  }
+
+  .tc-arrow{
+    width:30px;
+    height:30px;
+    min-width:30px;
+    font-size:16px;
+  }
+
+  .tc-name{
+    font-size:16px;
+  }
+
 }

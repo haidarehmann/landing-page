@@ -1,13 +1,37 @@
 .marquee-root{
   width: 100%;
   overflow: hidden;
-  margin-top:10px;
+  margin-top: 10px;
   position: relative;
   padding: 6vw 0 5vw;
   text-align: center;
-  background: linear-gradient(160deg, #244846 0%, #2a4843 45%, #273342 100%);
-}
 
+  /* Green Background + Golden Glow */
+  background:
+    /* Top Right Golden Glow */
+    radial-gradient(
+      circle at top right,
+      rgba(214,183,118,0.40) 0%,
+      rgba(214,183,118,0.18) 28%,
+      transparent 58%
+    ),
+
+    /* Bottom Left Golden Glow (More Visible) */
+    radial-gradient(
+      circle at bottom left,
+      rgba(214,183,118,0.60) 0%,
+      rgba(214,183,118,0.30) 35%,
+      transparent 68%
+    ),
+
+    /* Base Green Gradient */
+    linear-gradient(
+      160deg,
+      #244846 0%,
+      #2a4843 45%,
+      #273342 100%
+    );
+}
 .marquee-eyebrow{
   font-family: "Courier New", monospace;
   font-size: 12px;
@@ -21,23 +45,26 @@
   font-family: Georgia, serif;
   font-weight: 500;
   font-size: 32px;
-  color: #fdfdfd;
-  margin: 0 0 50px;
+  color: #ffffff;
+  margin: 0 0 20px;
 }
-.underline3 {
+
+.underline3{
   display: block;
   width: 70px;
   height: 4px;
   background: #b8935f;
   border-radius: 2px;
-  margin: 0 auto 20px;  
+  margin: 0 auto 40px;
 }
+
 .marquee-row{
   position: relative;
   overflow: hidden;
   padding: 10px 0;
 }
 
+/* Side Fade */
 .marquee-row::before,
 .marquee-row::after{
   content: "";
@@ -51,12 +78,22 @@
 
 .marquee-row::before{
   left: 0;
-  background: linear-gradient(90deg, #244846, transparent);
+  background: linear-gradient(
+    90deg,
+    #244846,
+    rgba(36,72,70,.75),
+    transparent
+  );
 }
 
 .marquee-row::after{
   right: 0;
-  background: linear-gradient(270deg, #273342, transparent);
+  background: linear-gradient(
+    270deg,
+    #273342,
+    rgba(39,51,66,.75),
+    transparent
+  );
 }
 
 .marquee-track{
@@ -77,6 +114,8 @@
   animation-play-state: paused;
 }
 
+/* Pills */
+
 .marquee-pill{
   font-family: Georgia, serif;
   font-size: 16px;
@@ -88,13 +127,15 @@
   padding: 14px 30px;
   white-space: nowrap;
   transition: all .3s ease;
+  backdrop-filter: blur(10px);
 }
 
 .marquee-pill:hover{
-  background: rgba(227,201,141,0.18);
+  background: rgba(227,201,141,0.20);
   border-color: #e3c98d;
   color: #ffffff;
   transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(184,147,95,.25);
 }
 
 .marquee-pill-alt{
@@ -107,25 +148,67 @@
   background: rgba(112,184,160,0.22);
   color: #ffffff;
   border-color: #b9f1dc;
+  transform: translateY(-3px);
 }
 
 @keyframes marquee-scroll-left{
-  from{ transform: translateX(0); }
-  to{ transform: translateX(-50%); }
+  from{
+    transform: translateX(0);
+  }
+  to{
+    transform: translateX(-50%);
+  }
 }
 
 @keyframes marquee-scroll-right{
-  from{ transform: translateX(-50%); }
-  to{ transform: translateX(0); }
+  from{
+    transform: translateX(-50%);
+  }
+  to{
+    transform: translateX(0);
+  }
 }
 
-@media (max-width: 640px){
+@media (max-width:768px){
+
   .marquee-heading{
-    font-size: 24px;
+    font-size:28px;
   }
 
   .marquee-pill{
-    font-size: 14px;
-    padding: 10px 20px;
+    padding:12px 24px;
+    font-size:15px;
   }
+
+}
+
+@media (max-width:640px){
+
+  .marquee-heading{
+    font-size:24px;
+  }
+
+  .marquee-pill{
+    font-size:14px;
+    padding:10px 20px;
+  }
+
+  .marquee-row::before,
+  .marquee-row::after{
+    width:60px;
+  }
+
+}
+
+@media (max-width:400px){
+
+  .marquee-heading{
+    font-size:21px;
+  }
+
+  .marquee-pill{
+    font-size:13px;
+    padding:8px 16px;
+  }
+
 }

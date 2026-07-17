@@ -27,13 +27,16 @@ function Header() {
       </div>
 
       <ul className="nav-links">
-        <li><button type="button" onClick={() => scrollToSection("ai")}>AI</button></li>
-        <li><button type="button" onClick={() => scrollToSection("features")}>Features</button></li>
-         <li><button type="button" onClick={() => scrollToSection("testimonials")}>Testimonials</button></li>
-        <li><button type="button" onClick={() => scrollToSection("services")}>Services</button></li>
-        <li><button type="button" onClick={() => scrollToSection("pricing")}>Pricing</button></li>
-        <li><button type="button" onClick={() => scrollToSection("contact")}>Contact</button></li>
-      </ul>
+  <ul className="nav-links">
+  <li><button onClick={() => scrollToSection("ai")}>Home</button></li>
+  <li><button onClick={() => scrollToSection("features")}>About</button></li>
+  <li><button onClick={() => scrollToSection("services")}>Services</button></li>
+  <li><button onClick={() => scrollToSection("solutions")}>Solutions</button></li>
+  <li><button onClick={() => scrollToSection("testimonials")}>Testimonials</button></li>
+  <li><button onClick={() => scrollToSection("faq")}>FAQ</button></li>
+  <li><button onClick={() => scrollToSection("contact")}>Contact</button></li>
+</ul>
+</ul>
     </header>
   );
 }

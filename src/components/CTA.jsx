@@ -1,123 +1,56 @@
-import React, { useState } from "react";
+import React from "react";
 import "./CTA.css";
 
 function CTA() {
-  const [formData, setFormData] = useState({
-    name: "",
-    company: "",
-    email: "",
-    message: ""
-  });
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const scrollToContact = () => {
+    const section = document.getElementById("contact");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Form Submitted:", formData);
-    alert("Thank you! Our team will reach out to you shortly.");
+  const scrollToServices = () => {
+    const section = document.getElementById("services");
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
 
   return (
-    <div id="faq">
-      <section id="contact" className="contact-root">
-      <div className="contact-container">
-        
-        {/* Left Side: Elegant Brand/Info Panel */}
-        <div className="contact-info-panel">
-          <span className="contact-tag">Get in Touch</span>
-          <h2 className="contact-info-heading">
-            Let’s build something <br />
-            <span className="gold-text">intelligent</span> together.
-          </h2>
-          <p className="contact-info-text">
-            Have questions about our solutions? Tell us about your project, and our experts will help you find the perfect setup.
-          </p>
+    <section className="cta-section">
+      <div className="cta-box">
 
-          <div className="contact-details-list">
-            <div className="contact-item">
-              <span className="contact-item-label"> Email</span>
-              <a href="Km@khadijaMubarik.com" className="contact-item-value">Km@khadijaMubarik.com</a>
-            </div>
-            <div className="contact-item">
-              <span className="contact-item-label">Phone</span>
-              <a href="tel:+923001234567" className="contact-item-value">+92 321 6420575</a>
-            </div>
-            <div className="location-item">
-              <span className="location-item-label">Location</span>
-              <a href="lahore" className="contact-item-value">Lahore, Pakistan</a>
-            </div>
-          </div>
+        <div className="cta-left">
+          <span className="cta-tag">LET'S BUILD THE FUTURE</span>
+
+          <h2>
+            Ready to Transform Your Business with AI?
+          </h2>
+
+          <p>
+            Build a governance-first AI strategy that improves decision-making,
+            reduces risk, and creates measurable business impact.
+          </p>
         </div>
 
-        {/* Right Side: Luxury Minimalist Form */}
-        <div className="contact-form-panel">
-          <form onSubmit={handleSubmit}>
-            <div className="form-grid">
-              {/* Name Field */}
-              <div className="input-group">
-                <label>Your Name</label>
-                <input 
-                  type="text" 
-                  name="name" 
-                  placeholder="Name" 
-                  value={formData.name}
-                  onChange={handleChange}
-                  required 
-                />
-              </div>
+        <div className="cta-right">
+          <button
+            className="cta-primary"
+            onClick={scrollToContact}
+          >
+            Book Consultation →
+          </button>
 
-              {/* Company Field */}
-              <div className="input-group">
-                <label>Company / Organization</label>
-                <input 
-                  type="text" 
-                  name="company" 
-                  placeholder="e.g. Strgis Hotel" 
-                  value={formData.company}
-                  onChange={handleChange}
-                />
-              </div>
-            </div>
-
-            {/* Email Field */}
-            <div className="input-group">
-              <label>Email Address</label>
-              <input 
-                type="email" 
-                name="email" 
-                placeholder="you@example.com" 
-                value={formData.email}
-                onChange={handleChange}
-                required 
-              />
-            </div>
-
-            {/* Message/Project Scope Field */}
-            <div className="input-group">
-              <label>Tell us about your requirements</label>
-              <textarea 
-                name="message" 
-                rows="4" 
-                placeholder="Describe your needs or ask us a question..."
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-
-            {/* Premium Gold Button */}
-            <button type="submit" className="submit-btn">
-              <span>Send Message</span>
-              <span className="btn-arrow">→</span>
-            </button>
-          </form>
+          <button
+            className="cta-secondary"
+            onClick={scrollToServices}
+          >
+            View Services
+          </button>
         </div>
 
       </div>
     </section>
-    </div>
   );
 }
 

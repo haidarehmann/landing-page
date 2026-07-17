@@ -2,100 +2,201 @@
   font-family: Arial, sans-serif;
   padding: 6vw;
   box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow-x: hidden; /* safety net against any child overflow */
 }
 
 .about-root *{
   box-sizing: border-box;
 }
 
+/* ===========================
+   LEFT BOX
+=========================== */
+
 .about-box{
   position: relative;
+  flex: 1 1 400px;
+  min-width: 0; /* important: lets flex item shrink below content size */
   max-width: 800px;
-  min-height: auto;
-  margin: 0 auto;
-  background: #ffffff;
-  border: 1px solid #e0ddd8;
-  border-left: 4px solid #b8935f;
-  border-radius: 14px;
-  padding: 50px 55px;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    #ffffff 0%,
+    #fdfaf4 25%,
+    #f8eed8 65%,
+    #efd8a9 100%
+  );
+
+  border: 1px solid rgba(184,147,95,0.25);
+  border-left: 5px solid #b8935f;
+  border-radius: 18px;
+  padding: clamp(28px, 4vw, 50px) clamp(20px, 5vw, 55px);
+
+  box-shadow:
+    0 15px 35px rgba(0,0,0,0.08),
+    0 5px 15px rgba(184,147,95,0.10);
 }
 
+/* Golden Glow */
+.about-box::before{
+  content:"";
+  position:absolute;
+  top:-120px;
+  right:-120px;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+
+  background:radial-gradient(
+    circle,
+    rgba(212,175,55,.28) 0%,
+    rgba(212,175,55,.12) 45%,
+    transparent 75%
+  );
+}
+
+/* White Glow */
+.about-box::after{
+  content:"";
+  position:absolute;
+  bottom:-120px;
+  left:-120px;
+  width:250px;
+  height:250px;
+  border-radius:50%;
+
+  background:radial-gradient(
+    circle,
+    rgba(255,255,255,.8) 0%,
+    transparent 75%
+  );
+}
+
+/* ===========================
+   RIGHT IMAGE
+=========================== */
+
+.about-image{
+  width: clamp(190px, 25vw, 340px);
+  flex-shrink: 0;
+}
+
+.about-image img{
+  width: 100%;
+  height: clamp(270px, 34vw, 370px);
+  object-fit: cover;
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 45px rgba(0,0,0,.18);
+
+  transition: .35s;
+}
+
+.about-image img:hover{
+  transform: translateY(-6px);
+}
+
+/* ===========================
+   CONTENT
+=========================== */
+
 .about-icon{
-  position: absolute;
-  top: 40px;
-  right: 40px;
-  font-size: 70px;
-  color: #b8935f;
+  position:absolute;
+  top: clamp(15px, 3vw, 35px);
+  right: clamp(15px, 3vw, 35px);
+  font-size: clamp(32px, 5vw, 65px);
+  color:#b8935f;
+  z-index:2;
 }
 
 .about-eyebrow{
-  font-family: 'Courier New', monospace;
-  font-size: 14px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: #96723f;
-  margin-top: 0;
-  margin-bottom: 25px;
-  max-width: 60%;      /* icon ke sath text overlap na ho */
+  font-family:"Courier New", monospace;
+  font-size: clamp(12px, 1.2vw, 14px);
+  letter-spacing:2px;
+  text-transform:uppercase;
+  color:#9b7742;
+  margin-bottom:22px;
+  max-width: 80%;
+  position:relative;
+  z-index:2;
 }
 
 .about-box h2{
-  font-family: Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(24px, 3.5vw, 34px);
-  line-height: 1.40;
-  color: #171310;
-  margin: 0 0 26px 0;
-  max-width: 400px;
+  font-family:Georgia, serif;
+  font-weight:500;
+  font-size: clamp(21px, 3.2vw, 34px);
+  color:#171310;
+  line-height:1.3;
+  margin-bottom:24px;
+  position:relative;
+  z-index:2;
 }
 
 .about-box p{
-  font-size: 15px;
-  line-height: 1.6;
-  color: #5c554c;
-  margin: 0 0 18px 0;
-}
-
-.about-box p:last-child{
-  margin-bottom: 0;
+  font-size: clamp(14px, 1.4vw, 15px);
+  line-height:1.8;
+  color:#5b554b;
+  margin-bottom:18px;
+  position:relative;
+  z-index:2;
 }
 
 .about-box strong{
-  color: #171310;
-  font-weight: 600;
+  color:#171310;
 }
 
-/* Tablet / mobile -- icon position same rehti hai (top-right), sirf size chhoti hoti hai */
-@media (max-width: 640px){
-  .about-box{ padding: 30px 20px; }
+.about-box p:last-child{
+  margin-bottom:0;
+}
 
-  .about-icon{
-    top: 24px;
-    right: 20px;
-    font-size: 42px;
+/* ===========================
+   TABLET
+=========================== */
+
+@media(max-width:992px){
+
+  .about-root{
+    flex-direction:column;
+    gap:35px;
+  }
+
+  .about-box{
+    max-width:100%;
+    width:100%;
+  }
+
+  .about-image{
+    width: clamp(230px, 60vw, 320px);
+  }
+
+}
+
+/* ===========================
+   MOBILE
+=========================== */
+
+@media(max-width:640px){
+
+  .about-root{
+    padding:8vw 5vw;
+  }
+
+  .about-box{
+    border-radius:14px;
   }
 
   .about-eyebrow{
-    max-width: 55%;      /* choti screen pe bhi icon ke sath overlap na ho */
-    margin-top: 0;
+    max-width:70%;
   }
 
-  .about-box h2{ font-size: 24px; max-width: none; }
-}
-
-/* Chhote phones */
-@media (max-width: 400px){
-  .about-root{ padding: 8vw 4vw; }
-  .about-box{ padding: 22px 16px; border-radius: 10px; }
-
-  .about-icon{
-    top: 10px;
-    right: 50px;
-    font-size: 32px;
-  }
-
-  .about-eyebrow{ max-width: 50%; font-size: 12px; }
-  .about-box h2{ font-size: 21px; }
-  .about-box p{ font-size: 14px; }
 }

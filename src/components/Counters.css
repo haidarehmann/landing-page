@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap');
+
+.stat-root {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  padding: 6vw 4vw;
+  box-sizing: border-box;
+  margin-top:-60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.stat-root * {
+  box-sizing: border-box;
+}
+
+.stat-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  max-width: 1100px;
+  width: 80%;
+  background: #ece9e9;
+  border-radius: 54px;
+  padding: 15px 4px;
+
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.stat-item:hover {
+  transform: translateY(-4px);
+}
+
+/* Subtle sleek separators */
+.stat-item:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: 0;
+  width: 1px;
+  height: 40px;
+  transform: translateY(-50%);
+}
+
+.stat-number {
+  font-size: 30px;
+  font-weight: 700;
+  color: #0f172a; 
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-bottom: 10px;
+  letter-spacing: -0.03em;
+}
+
+.stat-suffix {
+  /* Subtle, elegant Champagne Gold */
+  color: #c5a059;
+  font-size: 0.65em;
+  margin-left: 2px;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #64748b; /* Medium slate gray */
+  line-height: 1.5;
+  margin: 0;
+  transition: color 0.3s ease;
+}
+
+.stat-item:hover .stat-label {
+  color: #c5a059; /* Soft golden hover effect */
+}
+
+/* Responsive adjustments */
+@media (max-width: 850px) {
+  .stat-box {
+    flex-wrap: wrap;
+    row-gap: 36px;
+    padding: 36px 16px;
+  }
+  .stat-item {
+    flex: 0 0 50%;
+  }
+  .stat-item:nth-child(odd)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    width: 1px;
+    height: 35px;
+    background: rgba(0, 0, 0, 0.06);
+    transform: translateY(-50%);
+  }
+  .stat-item:nth-child(even)::after {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .stat-root { padding: 10vw 4vw; }
+  .stat-box { row-gap: 28px; border-radius: 20px; }
+  .stat-number { font-size: 28px; }
+  .stat-label { font-size: 11px; }
+  .stat-item::after,
+  .stat-item:nth-child(odd)::after { display: none; }
+  .stat-item { flex: 0 0 100%; }
+}

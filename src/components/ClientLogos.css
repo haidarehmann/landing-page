@@ -3,7 +3,7 @@
   padding: 20px 0 60px;
   font-family: Arial, sans-serif;
   overflow: hidden;
-  margin-top: 100px;
+  margin-top: 60px;
   background: none;
   box-shadow: none;
   border-radius: 0;
@@ -88,12 +88,12 @@
   max-width: 220px;
   height: 280px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.10);
-  scroll-snap-align: center;
-  flex-shrink: 0;
+  border-radius: 14px;
   position: relative;
-  transition: transform 0.3s ease;
-  border-radius: 12px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  transition: all 0.35s ease;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
 }
 
 .cardSmall:hover {
@@ -105,12 +105,12 @@
   max-width: 300px;
   height: 350px;
   overflow: hidden;
-  box-shadow: 0 16px 45px rgba(0, 0, 0, 0.15);
-  scroll-snap-align: center;
-  flex-shrink: 0;
+  border-radius: 14px;
   position: relative;
-  transition: transform 0.3s ease;
-  border-radius: 12px;
+  flex-shrink: 0;
+  scroll-snap-align: center;
+  transition: all 0.35s ease;
+  box-shadow: 0 20px 45px rgba(0,0,0,0.18);
 }
 
 .cardBig:hover {
@@ -128,41 +128,56 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
   display: block;
-}
+  transition: all 0.4s ease;
 
+  /* Soft Blur */
+  filter: blur(1px) brightness(0.72);
+}
 .cardSmall:hover .imgBox img,
 .cardBig:hover .imgBox img {
-  transform: scale(1.06);
+  transform: scale(1.05);
+  filter: blur(0.8px) brightness(0.78);
 }
 
 .overlay {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: transparent;
-  padding: 20px 16px 16px;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px 16px;
+
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.55) 0%,
+    rgba(0,0,0,0.30) 45%,
+    rgba(0,0,0,0.05) 100%
+  );
 }
 
 .cardTitle {
   font-family: Georgia, serif;
-  font-size: 17px;
-  font-weight: 500;
-  color: #fff;
+  font-size: 19px;
+  font-weight: 600;
+  color: #ffffff;
   margin: 0 0 10px;
   padding-bottom: 8px;
-  border-bottom: 2px solid #b8935f; 
   display: inline-block;
+  border-bottom: 2px solid #d4ac7a;
+
+  text-shadow: 0 3px 10px rgba(0,0,0,.8);
 }
 
 .cardDesc {
-  font-size: 12px;
-  color: rgba(255, 255, 255, 0.85);
-  line-height: 1.6;
-  margin: 8px 0 0;
+  font-size: 13px;
+  color: rgba(255,255,255,.95);
+  line-height: 1.7;
+  margin: 0;
+
+  text-shadow: 0 2px 8px rgba(0,0,0,.8);
 }
+
 /* ===== ARROWS ===== */
 .arrowLeft,
 .arrowRight {
