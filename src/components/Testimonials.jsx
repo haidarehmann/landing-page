@@ -30,31 +30,34 @@ const testimonials = [
     quote:
       "Brought structure to a process that felt overwhelming, without slowing us down.",
   },
-  {
-    name: "Rawaad",
-    role: "Executive Sponsor",
-    location: "USA",
-    quote:
-      "Translated a lot of AI ambiguity into a roadmap our leadership team could actually act on.",
-  },
-  {
-    name: "Tanweer",
-    role: "Head of Transformation",
-    location: "Pakistan",
-    quote:
-      "Made sure our teams were genuinely ready before we scaled anything — that mattered a lot.",
-  },
 ];
 
 function Testimonials() {
   const [index, setIndex] = useState(0);
+  const [direction, setDirection] = useState("next");
+  const [animating, setAnimating] = useState(false);
+
+  const changeIndex = (getNextIndex, dir) => {
+    if (animating) return;
+    setDirection(dir);
+    setAnimating(true);
+
+    setTimeout(() => {
+      setIndex(getNextIndex);
+      setAnimating(false);
+    }, 350);
+  };
 
   const prev = () => {
-    setIndex((i) => (i === 0 ? testimonials.length - 1 : i - 1));
+    changeIndex((i) => (i === 0 ? testimonials.length - 1 : i - 1), "prev");
   };
 
   const next = () => {
-    setIndex((i) => (i === testimonials.length - 1 ? 0 : i + 1));
+    changeIndex((i) => (i === testimonials.length - 1 ? 0 : i + 1), "next");
+  };
+
+  const goTo = (i) => {
+    changeIndex(() => i, i > index ? "next" : "prev");
   };
 
   const current = testimonials[index];
@@ -63,7 +66,7 @@ function Testimonials() {
     <div id="testimonials" className="tc-root">
       <p className="tc-eyebrow">Trusted By Leaders</p>
       <h2 className="tc-heading">
-        What Partners Say About <span>Working Together</span>
+        What Partners Say About
       </h2>
 
       <div className="tc-wrapper">
@@ -71,17 +74,29 @@ function Testimonials() {
           &#8249;
         </button>
 
-        <div className="tc-card">
-          <span className="tc-quote-mark">&#8220;</span>
+        <div className="tc-card-viewport">
+          <div
+            className={`tc-card ${
+              animating
+                ? direction === "next"
+                  ? "tc-slide-out-left"
+                  : "tc-slide-out-right"
+                : direction === "next"
+                ? "tc-slide-in-right"
+                : "tc-slide-in-left"
+            }`}
+          >
+            <span className="tc-quote-mark">&#8220;</span>
 
-          <p className="tc-quote">{current.quote}</p>
+            <p className="tc-quote">{current.quote}</p>
 
-          <div className="tc-divider"></div>
+            <div className="tc-divider"></div>
 
-          <div className="tc-avatar">{current.name.charAt(0)}</div>
-          <h3 className="tc-name">{current.name}</h3>
-          <p className="tc-role">{current.role}</p>
-          <p className="tc-location">{current.location}</p>
+            <div className="tc-avatar">{current.name.charAt(0)}</div>
+            <h3 className="tc-name">{current.name}</h3>
+            <p className="tc-role">{current.role}</p>
+            <p className="tc-location">{current.location}</p>
+          </div>
         </div>
 
         <button className="tc-arrow tc-arrow-right" onClick={next} aria-label="Next">
@@ -94,7 +109,7 @@ function Testimonials() {
           <button
             key={t.name}
             className={`tc-dot ${i === index ? "tc-dot-active" : ""}`}
-            onClick={() => setIndex(i)}
+            onClick={() => goTo(i)}
             aria-label={`Go to testimonial ${i + 1}`}
           />
         ))}

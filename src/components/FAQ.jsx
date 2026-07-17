@@ -5,27 +5,27 @@ const faqs = [
   {
     question: "Who do you typically work with?",
     answer:
-      "I partner with CEOs, boards, and leadership teams across finance, healthcare, and education who are serious about adopting AI responsibly — not experimenting, but building it into how they actually operate and govern.",
+      "I partner with CEOs, boards, and leadership teams across finance, healthcare, and education who are serious about adopting AI responsibly  not experimenting, but building it into how they actually operate and govern.",
   },
   {
     question: "What does a typical engagement look like?",
     answer:
-      "It starts with understanding where you are today — your data, your risk appetite, your leadership readiness. From there, we build a roadmap that's specific to your organization, not a generic template. Engagements range from a focused strategy sprint to a multi-month transformation partnership.",
+      "It starts with understanding where you are today  your data, your risk appetite, your leadership readiness. From there, we build a roadmap that's specific to your organization, not a generic template. Engagements range from a focused strategy sprint to a multi-month transformation partnership.",
   },
   {
     question: "Do you only work with clients in Pakistan?",
     answer:
-      "No. Over the past decade, I've advised organizations across KSA, UAE, USA, and Pakistan. Distance isn't a barrier — most of the work happens through structured workshops, calls, and documentation regardless of where you're based.",
+      "No. Over the past decade, I've advised organizations across KSA, UAE, USA, and Pakistan. Distance isn't a barrier  most of the work happens through structured workshops, calls, and documentation regardless of where you're based.",
   },
   {
     question: "How is this different from hiring a traditional consultant?",
     answer:
-      "Most consultants bring frameworks. I bring executive-level AI and governance expertise combined with real board-level experience — so the strategy we build isn't just technically sound, it's something your leadership team can actually defend and act on.",
+      "Most consultants bring frameworks. I bring executive-level AI and governance expertise combined with real board-level experience  so the strategy we build isn't just technically sound, it's something your leadership team can actually defend and act on.",
   },
   {
     question: "What happens after I reach out?",
     answer:
-      "You'll hear back within one business day to schedule a short discovery call. No pitch, no pressure — just a conversation to understand your situation and see if there's a genuine fit before anything moves forward.",
+      "You'll hear back within one business day to schedule a short discovery call. No pitch, no pressure  just a conversation to understand your situation and see if there's a genuine fit before anything moves forward.",
   },
 ];
 

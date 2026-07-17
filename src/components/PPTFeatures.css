@@ -24,27 +24,27 @@
 .about-box{
   position: relative;
   flex: 1 1 400px;
-  min-width: 0; /* important: lets flex item shrink below content size */
+  min-width: 0;
   max-width: 800px;
   overflow: hidden;
 
   background: linear-gradient(
     135deg,
     #ffffff 0%,
-    #fdfaf4 25%,
-    #f8eed8 65%,
-    #efd8a9 100%
+    #f6ecf3 40%,
+    #dccdd7 100%
   );
 
-  border: 1px solid rgba(184,147,95,0.25);
-  border-left: 5px solid #b8935f;
+  border: 1px solid rgba(91, 55, 101, 0.25);
+  border-left: 5px solid #5B3765;
   border-radius: 18px;
   padding: clamp(28px, 4vw, 50px) clamp(20px, 5vw, 55px);
 
   box-shadow:
     0 15px 35px rgba(0,0,0,0.08),
-    0 5px 15px rgba(184,147,95,0.10);
+    0 5px 15px rgba(91, 55, 101, 0.10);
 }
+
 
 /* Golden Glow */
 .about-box::before{
@@ -58,8 +58,9 @@
 
   background:radial-gradient(
     circle,
-    rgba(212,175,55,.28) 0%,
-    rgba(212,175,55,.12) 45%,
+    #ffffff 0%,
+    #f6ecf3 40%,
+    #dccdd7 100%
     transparent 75%
   );
 }
@@ -112,19 +113,19 @@
 
 .about-icon{
   position:absolute;
-  top: clamp(15px, 3vw, 35px);
-  right: clamp(15px, 3vw, 35px);
+  top: 5px;
+  right: 70px;
   font-size: clamp(32px, 5vw, 65px);
-  color:#b8935f;
+  color:#5B3765;
   z-index:2;
 }
 
 .about-eyebrow{
-  font-family:"Courier New", monospace;
+  font-family: Georgia, serif;;
   font-size: clamp(12px, 1.2vw, 14px);
   letter-spacing:2px;
   text-transform:uppercase;
-  color:#9b7742;
+  color:#9E6899;
   margin-bottom:22px;
   max-width: 80%;
   position:relative;
@@ -143,6 +144,7 @@
 }
 
 .about-box p{
+  font-family: Georgia, serif;
   font-size: clamp(14px, 1.4vw, 15px);
   line-height:1.8;
   color:#5b554b;

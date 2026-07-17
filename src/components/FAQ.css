@@ -1,10 +1,14 @@
 /* Container resets and setup */
 .faq-wrapper {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: Georgia, serif;
   padding: 100px 40px;
   display: flex;
   margin-top:-60px;
   justify-content: center;
+}
+
+.faq-wrapper * {
+  font-family: inherit;
 }
 
 .faq-grid-container {
@@ -26,16 +30,14 @@
 }
 
 .faq-eyebrow-tag {
-  font-family: monospace;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 3px;
-  color: #96723f; /* Brand Accent Gold */
+  color: #9E6899; /* Brand Accent */
   margin-bottom: 15px;
 }
 
 .faq-main-title {
-  font-family: Georgia, serif;
   font-size: clamp(30px, 4vw, 44px);
   font-weight: 500;
   line-height: 1.25;
@@ -48,12 +50,13 @@
   line-height: 1.7;
   color: #64748b;
   margin: 0 0 35px 0;
+  text-align: justify;
 }
 
 .faq-decor-element {
   width: 80px;
   height: 2px;
-  background: linear-gradient(90deg, #d4ac7a, transparent);
+  background: linear-gradient(90deg, #D6A8C4, transparent);
 }
 
 /* RIGHT ACCORDION PANEL */
@@ -89,14 +92,12 @@
 }
 
 .faq-number {
-  font-family: monospace;
   font-size: 13px;
-  color: #d4ac7a; /* Gold Accent Number */
+  color: #9E6899; /* Accent Number */
   font-weight: 600;
 }
 
 .faq-question-text {
-  font-family: Georgia, serif;
   font-size: 18px;
   font-weight: 500;
   text-align: left;
@@ -121,16 +122,16 @@
 
 /* HOVER & OPEN STATES */
 .faq-bar-trigger:hover .faq-question-text {
-  color: #96723f;
+  color: #5B3765;
 }
 
 .faq-bar-active .faq-question-text {
-  color: #96723f;
+  color: #5B3765;
 }
 
 .faq-bar-active .faq-toggle-arrow {
   transform: rotate(180deg);
-  color: #d4ac7a;
+  color: #5B3765;
 }
 
 /* Modern CSS Grid transition for pure smooth height expansion */
@@ -154,6 +155,7 @@
   font-size: 14.5px;
   line-height: 1.8;
   color: #5c554c;
+  text-align: justify;
 }
 
 /* RESPONSIVE DESIGN */

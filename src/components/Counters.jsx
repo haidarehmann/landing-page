@@ -1,11 +1,12 @@
 import React, { useEffect, useRef, useState } from "react";
+import { FaRegClock, FaBuilding, FaGlobeAmericas, FaRobot } from "react-icons/fa";
 import "./Counters.css";
 
 const stats = [
-  { value: 10, suffix: "+", label: "Years Experience" },
-  { value: 50, suffix: "+", label: "Organizations Advised" },
-  { value: 4, suffix: "", label: "Countries Reached" },
-  { value: 3, suffix: "", label: "AI Products Built" },
+  { value: 10, suffix: "+", label: "Years Experience", icon: <FaRegClock /> },
+  { value: 50, suffix: "+", label: "Organizations Advised", icon: <FaBuilding /> },
+  { value: 4, suffix: "", label: "Countries Reached", icon: <FaGlobeAmericas /> },
+  { value: 3, suffix: "", label: "AI Products Built", icon: <FaRobot /> },
 ];
 
 function useCountUp(target, shouldStart, duration = 1600) {
@@ -38,7 +39,7 @@ function useCountUp(target, shouldStart, duration = 1600) {
   return count;
 }
 
-function StatItem({ value, suffix, label }) {
+function StatItem({ value, suffix, label, icon }) {
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
   const count = useCountUp(value, inView);
@@ -60,9 +61,12 @@ function StatItem({ value, suffix, label }) {
 
   return (
     <div className="stat-item" ref={ref}>
-      <div className="stat-number">
-        {count}
-        <span className="stat-suffix">{suffix}</span>
+      <div className="stat-top">
+        <div className="stat-icon">{icon}</div>
+        <div className="stat-number">
+          {count}
+          <span className="stat-suffix">{suffix}</span>
+        </div>
       </div>
       <p className="stat-label">{label}</p>
     </div>
@@ -74,7 +78,7 @@ export function Counters() {
     <section id="stats" className="stat-root">
       <div className="stat-box">
         {stats.map((s, i) => (
-          <StatItem key={i} value={s.value} suffix={s.suffix} label={s.label} />
+          <StatItem key={i} value={s.value} suffix={s.suffix} label={s.label} icon={s.icon} />
         ))}
       </div>
     </section>

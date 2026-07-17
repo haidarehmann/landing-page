@@ -1,27 +1,26 @@
 .cmp-root{
-  font-family: Arial, sans-serif;
+  font-family: Georgia, serif;
   text-align: center;
   padding: 6vw 6vw;
   box-sizing: border-box;
   margin-top:-30px;
-  background: #ffffff;
+  
 }
 
 .cmp-root *{
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 .cmp-eyebrow{
-  font-family: "Courier New", monospace;
   font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #96723f;
+  color: #9E6899;
   margin: 0 0 14px;
 }
 
 .cmp-heading{
-  font-family: Georgia, serif;
   font-weight: 500;
   font-size: clamp(24px, 3.6vw, 34px);
   color: #171310;
@@ -31,7 +30,7 @@
 .cmp-underline{
   width: 60px;
   height: 3px;
-  background: #b8935f;
+  background: #5B3765;
   border-radius: 2px;
   margin: 0 auto 20px;
 }
@@ -42,6 +41,7 @@
   max-width: 520px;
   margin: 0 auto 55px;
   line-height: 1.6;
+  text-align: justify;
 }
 
 .cmp-panels{
@@ -57,55 +57,43 @@
   text-align: left;
   padding: 44px 40px;
   border-radius: 24px;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
 }
 
 .cmp-panel-old{
-  background: #f7f6f4;
-  border: 1px solid #e8e5e0;
+  background: #ffffff;
+  border: 1px solid rgba(214, 168, 196, 0.3);
+  box-shadow:
+    0 10px 30px rgba(91, 55, 101, 0.05),
+    0 2px 8px rgba(91, 55, 101, 0.03);
 }
 
 .cmp-panel-new{
   position: relative;
   overflow: hidden;
-
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(214,183,118,0.25) 0%,
-      rgba(214,183,118,0.10) 30%,
-      transparent 60%
-    ),
-
-    radial-gradient(
-      circle at bottom left,
-      rgba(214,183,118,0.35) 0%,
-      rgba(214,183,118,0.16) 35%,
-      transparent 65%
-    ),
-
-    linear-gradient(
-      160deg,
-      #244846 0%,
-      #2a4843 45%,
-      #273342 100%
-    );
-
-  box-shadow: 0 25px 60px rgba(23,19,16,0.2);
+  background: linear-gradient(135deg, #ffffff 0%, #f6ecf3 50%, #D6A8C4 100%);
+  border: 1px solid rgba(214, 168, 196, 0.4);
+  box-shadow:
+    0 25px 60px rgba(91, 55, 101, 0.15),
+    0 10px 30px rgba(91, 55, 101, 0.10);
   transform: scale(1.04);
+}
+
+.cmp-panel-new::before{
+  content: none;
 }
 
 .cmp-panel-tag{
   display: inline-block;
-  font-family: "Courier New", monospace;
   font-size: 11px;
   letter-spacing: 1.5px;
   text-transform: uppercase;
-  color: #8a857c;
+  color:#9E6899 ;
   margin-bottom: 26px;
 }
 
 .cmp-panel-tag-gold{
-  color: #d4ac7a;
+  color: #9E6899;
 }
 
 .cmp-panel-list{
@@ -119,9 +107,10 @@
   align-items: flex-start;
   gap: 14px;
   font-size: 14.5px;
-  line-height: 1.5;
+  line-height: 1.6;
   margin-bottom: 20px;
   color: #5c554c;
+  text-align: justify;
 }
 
 .cmp-panel-list li:last-child{
@@ -129,7 +118,7 @@
 }
 
 .cmp-panel-new .cmp-panel-list li{
-  color: #e6e3dd;
+  color: #5c554c;
 }
 
 .cmp-icon{
@@ -146,14 +135,15 @@
 }
 
 .cmp-icon-no{
-  background: #d9534f;   /* Red Circle */
-  color: #ffffff;        /* White Cross */
-  border: 2px solid #c0392b;
+  background:  darkred;
+  color:#fff;
+  border: 1px solid rgba(214, 168, 196, 0.5);
 }
 
 .cmp-icon-yes{
-  background: rgba(212, 172, 122, 0.18);
-  color: #d4ac7a;
+  background: green;
+  color: #fff;
+  border: 1px solid rgba(91, 55, 101, 0.25);
 }
 
 .cmp-divider{
@@ -163,19 +153,18 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background: #ffffff;
-  border: 2px solid #e0ddd8;
-  font-family: Georgia, serif;
+  background: linear-gradient(135deg, #BA88AE, #5B3765);
+  border: 3px solid #ffffff;
   font-size: 13px;
   font-weight: 700;
-  color: #b8935f;
+  color: #ffffff;
   margin: 0 -18px;
   position: relative;
   z-index: 2;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  box-shadow: 0 8px 24px rgba(91, 55, 101, 0.35);
 }
 
-/* Tablet & Mobile: white box -> VS -> green box, natural order */
+/* Tablet & Mobile: white box -> VS -> light purple box, natural order */
 @media (max-width: 860px){
   .cmp-panels{
     grid-template-columns: 1fr;
@@ -188,7 +177,6 @@
 
   .cmp-panel-new{
     transform: scale(1);
-    /* order hata diya -- ab source order follow hoga: white, VS, green */
   }
 
   .cmp-panel{ padding: 36px 30px; }

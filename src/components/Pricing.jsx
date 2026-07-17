@@ -1,4 +1,5 @@
 import React from "react";
+import { FaRegLightbulb, FaCrown, FaBuilding } from "react-icons/fa";
 import "./Pricing.css";
 
 const plans = [
@@ -7,6 +8,7 @@ const plans = [
     price: "$1,500",
     period: "/ engagement",
     description: "For teams starting their AI and governance journey.",
+    icon: <FaRegLightbulb />,
     features: [
       "Initial AI readiness assessment",
       "1 strategy workshop session",
@@ -14,6 +16,7 @@ const plans = [
       "Email support (2 weeks)",
     ],
     featured: false,
+    badge: "Great Start",
     cta: "Get Started",
   },
   {
@@ -21,6 +24,7 @@ const plans = [
     price: "$4,800",
     period: "/ engagement",
     description: "For organizations driving full-scale AI transformation.",
+    icon: <FaCrown />,
     features: [
       "Full AI & digital transformation roadmap",
       "4 strategy workshop sessions",
@@ -29,6 +33,7 @@ const plans = [
       "Priority support (8 weeks)",
     ],
     featured: true,
+    badge: "Most Popular",
     cta: "Book a Consultation",
   },
   {
@@ -36,6 +41,7 @@ const plans = [
     price: "Custom",
     period: "/ month",
     description: "Ongoing advisory for large-scale, multi-market operations.",
+    icon: <FaBuilding />,
     features: [
       "Dedicated advisory partnership",
       "Unlimited strategy sessions",
@@ -44,6 +50,7 @@ const plans = [
       "Direct line to leadership",
     ],
     featured: false,
+    badge: "Best for Scale",
     cta: "Contact Us",
   },
 ];
@@ -55,7 +62,7 @@ function Pricing() {
       <h2 className="pr-heading">Advisory Packages Built Around Your Goals</h2>
       <div className="pr-underline"></div>
       <p className="pr-subtitle">
-        Flexible engagement models — from a single strategic workshop to full transformation partnerships.
+        Flexible engagement models  from a single strategic workshop to full transformation partnerships.
       </p>
 
       <div className="pr-grid">
@@ -64,7 +71,9 @@ function Pricing() {
             key={i}
             className={`pr-card ${plan.featured ? "pr-card-featured" : ""}`}
           >
-        
+            {plan.badge && <span className="pr-badge">{plan.badge}</span>}
+
+            <div className="pr-plan-icon">{plan.icon}</div>
 
             <h3 className="pr-plan-name">{plan.name}</h3>
             <p className="pr-plan-desc">{plan.description}</p>
@@ -85,7 +94,7 @@ function Pricing() {
 
             <button className="pr-cta">
               {plan.cta}
-              <span className="pr-cta-arrow">→</span>
+              <span className="pr-cta-arrow"></span>
             </button>
           </div>
         ))}

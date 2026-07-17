@@ -15,7 +15,7 @@ function AIFeatures() {
 
           <p className="kh-lede">
             <strong>Khadija Mubarak</strong> helps CEOs and organizations turn AI
-            ambition into responsible, high-impact strategy — combining deep
+            ambition into responsible, high-impact strategy , combining deep
             expertise in finance, governance, and risk with a rigorous,
             board-level view of technology adoption.
           </p>

@@ -137,7 +137,7 @@ const ClientLogos = () => {
             <div className="quoteSection">
                 <p className="quoteText">
                     <span className="quoteMark">"</span>
-                    AI is not just a technological shift — it is a leadership shift, and every service here is built to prove it.
+                    AI is not just a technological shift  it is a leadership shift, and every service here is built to prove it.
                 </p>
                 <div className="quoteLine"></div>
             </div>

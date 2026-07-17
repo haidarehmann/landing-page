@@ -11,22 +11,22 @@ const credentials = [
   {
     logo: ox1,
     name: "University of Oxford",
-    program: "Executive Education — AI & Digital Strategy",
+    program: "Executive Education  AI & Digital Strategy",
   },
   {
     logo: hb1,
     name: "Harvard Business School",
-    program: "Executive Education — Digital Transformation",
+    program: "Executive Education  Digital Transformation",
   },
   {
     logo: lb1,
     name: "London Business School",
-    program: "Executive Education — Responsible Automation",
+    program: "Executive Education  Responsible Automation",
   },
   {
     logo: cu1,
     name: "University of Cambridge",
-    program: "Executive Education — AI & Governance",
+    program: "Executive Education  AI & Governance",
   },
 ];
 

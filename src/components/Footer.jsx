@@ -9,7 +9,7 @@ function Footer() {
         
         {/* Brand Column */}
         <div className="footer-column brand-col">
-          <h3 className="footer-brand">COASTS</h3>
+          <h3 className="footer-brand">KHADIJA MUBARIK</h3>
           <p className="footer-desc">
             Empowering modern businesses with elite, innovative products to streamline complex decisions and drive sustainable growth.
           </p>
@@ -52,7 +52,7 @@ function Footer() {
         <div className="footer-bottom-content">
           <p>&copy; {new Date().getFullYear()} Coasts. All rights reserved.</p>
           
-          {/* Social Icons Section (Now perfectly integrated) */}
+          {/* Social Icons Section */}
           <div className="social-icons">
             <a href="#" className="icon">
               <FaInstagram size={17} />

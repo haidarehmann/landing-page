@@ -2,19 +2,19 @@ import React from "react";
 import "./Competitor.css";
 
 const oldWay = [
-  "Generic frameworks applied without context",
-  "AI recommendations with no governance lens",
-  "Limited regional (MENA) experience",
-  "One-size-fits-all engagement models",
-  "Reports handed over, then silence",
+  "Generic frameworks applied without context.",
+  "AI recommendations with no governance lens.",
+  "Limited regional (MENA) experience.",
+  "One-size-fits-all engagement models.",
+  "Reports handed over, then silence.",
 ];
 
 const newWay = [
-  "Strategy built around your specific risk and structure",
-  "Every AI decision filtered through governance and compliance",
-  "A decade of hands-on experience across KSA, UAE, USA & Pakistan",
-  "Engagements shaped around your actual goals",
-  "Ongoing partnership through implementation, not just advice",
+  "Strategy built around your specific risk and structure.",
+  "Every AI decision filtered through governance and compliance.",
+  "A decade of hands-on experience across KSA, UAE, USA & Pakistan.",
+  "Engagements shaped around your actual goals.",
+  "Ongoing partnership through implementation, not just advice.",
 ];
 
 function Competitor() {

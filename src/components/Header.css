@@ -27,13 +27,39 @@
 .logo h2{
     font-size:28px;
     font-weight:700;
-    color:#96723f;
+    color:#5B3765;
     line-height:1.2;
 }
+
+.get-started-btn{
+    background:#5B3765;
+    color:#fff;
+    border:none;
+    padding:12px 26px;
+    border-radius:30px;
+    font-size:15px;
+    font-weight:600;
+    cursor:pointer;
+    transition:0.3s;
+    white-space:nowrap;
+}
+
+.get-started-btn:hover{
+    background:#4a2c52;
+    transform:translateY(-1px);
+}
+
+.get-started-btn:focus-visible{
+    outline:2px solid #5B3765;
+    outline-offset:3px;
+}
+
+
 
 .logo p{
     font-size:13px;
     color:#666;
+     font-family: Georgia, serif;
     margin-top:3px;
 }
 
@@ -42,7 +68,8 @@
 .nav-links{
     display:flex;
     list-style:none;
-    gap:35px;
+    gap:40px;
+    margin-left:110px
 }
 
 .nav-links li{
@@ -62,11 +89,11 @@
 }
 
 .nav-links button:hover{
-    color:#96723f;
+    color:#7e3892;
 }
 
 .nav-links button:focus-visible{
-    outline:2px solid #96723f;
+    outline:2px solid #5B3765;
     outline-offset:3px;
     border-radius:4px;
 }
@@ -90,15 +117,21 @@
     }
 
     .logo h2{
-        font-size:22px;
+        font-size:18px;
     }
 
     .logo p{
-        font-size:11px;
+        font-size:9px;
     }
 
 }
 @media (max-width: 860px){
   .header{ width: 90%; padding: 0 20px; }
   .nav-links{ display: none; }
+}
+@media(max-width:860px){
+    .get-started-btn{
+        padding:8px 15px;
+        font-size:11px;
+    }
 }

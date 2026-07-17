@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Coast.css";
 
 const products = [
@@ -23,66 +23,31 @@ const products = [
 ];
 
 function Coast() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  // Next Slide function
-  const nextSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === products.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  // Previous Slide function
-  const prevSlide = () => {
-    setCurrentIndex((prevIndex) => 
-      prevIndex === 0 ? products.length - 1 : prevIndex - 1
-    );
-  };
-
-  const currentItem = products[currentIndex];
-
   return (
-    <section id="pricing" className="coasts-root">
+    <section className="coasts-root">
       {/* Header Area */}
       <div className="coasts-title-area">
         <span className="coasts-tag">Our Solutions</span>
         <h2 className="coasts-heading">Intelligent Solutions</h2>
-        <div className="underline3"></div>
+        <div className="underline4"></div>
         <p className="coasts-text">
           Empowering businesses with innovative products that simplify complex decisions.
         </p>
       </div>
 
-      <div className="slider-container">
-        
-        <button className="nav-btn prev-btn" onClick={prevSlide}>
-          &#8249;
-        </button>
+      <div className="coasts-grid">
+        {products.map((item, index) => (
+          <div className="coasts-box" key={index}>
+            <p className="card-desc">"{item.description}"</p>
 
-        <div className="coasts-box">
-          <p className="card-desc">"{currentItem.description}"</p>
-          
-          <div className="card-footer">
-            <div className="user-badge">{currentItem.initials}</div>
-            <div className="user-info">
-              <h3>{currentItem.title}</h3>
-              <h5>{currentItem.subtitle}</h5>
+            <div className="card-footer">
+              <div className="user-badge">{item.initials}</div>
+              <div className="user-info">
+                <h3>{item.title}</h3>
+                <h5>{item.subtitle}</h5>
+              </div>
             </div>
           </div>
-        </div>
-
-        <button className="nav-btn next-btn" onClick={nextSlide}>
-          &#8250;
-        </button>
-      </div>
-
-      <div className="dots-container">
-        {products.map((_, index) => (
-          <button
-            key={index}
-            className={`dot ${index === currentIndex ? "active-dot" : ""}`}
-            onClick={() => setCurrentIndex(index)}
-          ></button>
         ))}
       </div>
     </section>

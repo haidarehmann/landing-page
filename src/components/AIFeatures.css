@@ -1,18 +1,19 @@
 .khadija-hero-root{
-  font-family: Arial, sans-serif;
+  font-family: Georgia, serif;
   box-sizing: border-box;
 }
 
 .khadija-hero-root *{
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 .kh-hero{
   min-height: 100vh;
-  min-height: 100svh;   /* mobile browser address-bar jump fix */
+  min-height: 100svh;
   display: grid;
   grid-template-columns: 1.2fr 0.9fr;
-  color: #171310;
+  color: #5B3765;
 }
 
 .kh-main{
@@ -20,32 +21,30 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  min-width: 0;          /* text overflow safety inside grid column */
+  min-width: 0;
 }
 
 .kh-eyebrow{
-  font-family: 'Courier New', monospace;
   font-size: clamp(11px, 1.1vw, 12.5px);
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #96723f;
+  color: #9E6899;
   margin-bottom: 24px;
 }
 
 .kh-hero h1{
-  font-family: Georgia, serif;
-  font-weight: 500;
-  font-size: clamp(28px, 4.8vw, 50px);
-  line-height: 1.15;
-  color: #171310;
-  max-width: 500px;
+  font-weight: 550;
+  font-size: 45px;
+  line-height: 1.18;
+  color: #5B3765;
+  max-width: 1000px;
   margin: 0;
   word-wrap: break-word;
 }
 
 .kh-hero h1 em{
   font-style: italic;
-  color: #96723f;
+  color: #BA88Ae;
   font-weight: 400;
 }
 
@@ -55,10 +54,11 @@
   line-height: 1.75;
   color: #5c554c;
   max-width: 600px;
+  text-align: justify;
 }
 
 .kh-lede strong{
-  color: #171310;
+  color: #5B3765;
   font-weight: 600;
 }
 
@@ -70,20 +70,19 @@
 }
 
 .kh-pill{
-  font-family: 'Courier New', monospace;
   font-size: 11.5px;
   letter-spacing: 1px;
   padding: 8px 14px;
-  border: 1px solid #e0ddd8;
+  border: 1px solid #BA88AE;
   border-radius: 2px;
-  color: #b8935f;
-  background: rgba(0,0,0,0.03);
+  color: #9E6899;
+  background: rgba(186, 136, 174, 0.08);
   white-space: nowrap;
 }
 
 /* Image side */
 .kh-image{
-  overflow: hidden;      /* visible se hidden -- image ab side se bahar nahi chalke gi */
+  overflow: hidden;
   position: relative;
   display: flex;
   align-items: center;
@@ -93,7 +92,7 @@
 .kh-image img{
   display: block;
   width: 90%;
-  height: auto;           /* fixed % height hataya -- ab image natural ratio mein rahegi, stretch nahi hogi */
+  height: auto;
   max-height: 80%;
   margin-top: clamp(20px, 6vw, 75px);
   object-fit: cover;
@@ -106,9 +105,9 @@
 
   .kh-image{
     border-left: none;
-    border-top: 1px solid #e0ddd8;
+    border-top: 1px solid #BA88AE;
     min-height: 45vh;
-    order: -1;             /* image upar, text neeche */
+    order: -1;
   }
 
   .kh-image img{
@@ -116,7 +115,7 @@
     height: 100%;
     max-height: none;
     margin-top: 0;
-    object-fit: cover;     
+    object-fit: cover;
     border-radius: 0;
   }
 

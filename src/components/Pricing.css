@@ -1,37 +1,38 @@
 .pr-root{
-  font-family: Arial, sans-serif;
+  font-family: Georgia, serif;
   text-align: center;
   padding: 6vw;
   box-sizing: border-box;
+ 
 }
 
 .pr-root *{
   box-sizing: border-box;
+  font-family: inherit;
 }
 
 .pr-eyebrow{
-  font-family: "Courier New", monospace;
   font-size: 12px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #96723f;
+  color: #9E6899;
   margin: 0 0 14px;
 }
 
 .pr-heading{
-  font-family: Georgia, serif;
   font-weight: 500;
   font-size: clamp(24px,3.6vw,34px);
   color:#171310;
   max-width:700px;
   margin:0 auto 15px;
   line-height:1.3;
+  text-align: justify;
 }
 
 .pr-underline{
   width:60px;
   height:3px;
-  background:#b8935f;
+  background:#5B3765;
   border-radius:2px;
   margin:0 auto 20px;
 }
@@ -39,9 +40,10 @@
 .pr-subtitle{
   font-size:15px;
   color:#5c554c;
-  max-width:520px;
+  max-width:663px;
   margin:0 auto 60px;
   line-height:1.6;
+  text-align: justify;
 }
 
 /* ================= GRID ================= */
@@ -61,22 +63,8 @@
   position: relative;
   overflow: hidden;
 
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(214,183,118,0.08) 0%,
-      rgba(214,183,118,0.03) 30%,
-      transparent 60%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(214,183,118,0.06) 0%,
-      rgba(214,183,118,0.02) 35%,
-      transparent 65%
-    ),
-    #ededea;
-
-  border: 1px solid #e0ddd8;
+  background: linear-gradient(160deg, #ffffff 0%, #fdfaf9 55%, #f6ecf3 100%);
+  border: 1px solid rgba(214, 168, 196, 0.35);
   border-radius: 24px;
   padding: 44px 34px;
   text-align: left;
@@ -85,50 +73,76 @@
   flex-direction: column;
   height: 100%;
 
-  box-shadow: 0 15px 40px rgba(0,0,0,.04);
+  box-shadow: 0 15px 40px rgba(91, 55, 101, 0.06);
   transition: .3s;
 }
 
-
 .pr-card:hover{
   transform:translateY(-6px);
-  box-shadow:0 25px 55px rgba(0,0,0,.08);
+  box-shadow:0 25px 55px rgba(91, 55, 101, 0.12);
+  border-color: rgba(214, 168, 196, 0.7);
 }
 
-/* Featured Card Same Style */
+/* Featured Card — same styling as others, no scale/highlight */
 
 .pr-card-featured{
-  background:
-    radial-gradient(
-      circle at top right,
-      rgba(214,183,118,0.08) 0%,
-      rgba(214,183,118,0.03) 30%,
-      transparent 60%
-    ),
-    radial-gradient(
-      circle at bottom left,
-      rgba(214,183,118,0.06) 0%,
-      rgba(214,183,118,0.02) 35%,
-      transparent 65%
-    ),
-    #ededea;
-
-  border: 1px solid #e0ddd8;
+  background: linear-gradient(160deg, #ffffff 0%, #fdfaf9 55%, #f6ecf3 100%);
+  border: 1px solid rgba(214, 168, 196, 0.35);
+  box-shadow: 0 15px 40px rgba(91, 55, 101, 0.06);
+  transform: none;
 }
 
 .pr-card-featured:hover{
   transform:translateY(-6px);
-  box-shadow:0 25px 55px rgba(0,0,0,.08);
+  box-shadow:0 25px 55px rgba(91, 55, 101, 0.12);
+  border-color: rgba(214, 168, 196, 0.7);
+}
+
+.pr-badge{
+  position: absolute;
+  top: 22px;
+  right: 22px;
+  background: rgba(91, 55, 101, 0.1);
+  color: #5B3765;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 6px 14px;
+  border-radius: 20px;
+  border: 1px solid rgba(91, 55, 101, 0.25);
+  text-align: justify;
+}
+
+/* ================= ICON ================= */
+
+.pr-plan-icon{
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  margin-bottom: 22px;
+
+  background: linear-gradient(135deg, #f6ecf3, #D6A8C4);
+  color: #5B3765;
+}
+
+.pr-card-featured .pr-plan-icon{
+  background: linear-gradient(135deg, #f6ecf3, #D6A8C4);
+  color: #5B3765;
 }
 
 /* ================= TEXT ================= */
 
 .pr-plan-name{
-  font-family:Georgia,serif;
   font-size:21px;
   font-weight:600;
   color:#171310;
   margin:0 0 10px;
+  text-align: justify;
 }
 
 .pr-card-featured .pr-plan-name{
@@ -141,6 +155,7 @@
   line-height:1.5;
   margin:0 0 24px;
   min-height:40px;
+  text-align: justify;
 }
 
 .pr-card-featured .pr-plan-desc{
@@ -153,18 +168,18 @@
   gap:6px;
   margin-bottom:28px;
   padding-bottom:28px;
-  border-bottom:1px solid #e0ddd8;
+  border-bottom:1px solid rgba(214, 168, 196, 0.35);
 }
 
 .pr-card-featured .pr-price-row{
-  border-bottom:1px solid #e0ddd8;
+  border-bottom:1px solid rgba(214, 168, 196, 0.35);
 }
 
 .pr-price{
-  font-family:Georgia,serif;
   font-size:34px;
   font-weight:600;
   color:#171310;
+  text-align: justify;
 }
 
 .pr-card-featured .pr-price{
@@ -173,11 +188,12 @@
 
 .pr-period{
   font-size:13px;
-  color:#96723f;
+  color:#9E6899;
+  text-align: justify;
 }
 
 .pr-card-featured .pr-period{
-  color:#96723f;
+  color:#9E6899;
 }
 
 /* ================= FEATURES ================= */
@@ -197,6 +213,7 @@
   color:#5c554c;
   line-height:1.5;
   margin-bottom:14px;
+  text-align: justify;
 }
 
 .pr-card-featured .pr-features li{
@@ -204,50 +221,48 @@
 }
 
 .pr-feature-check{
-  color:#b8935f;
+  color:green;
   font-weight:700;
   flex-shrink:0;
 }
 
 .pr-card-featured .pr-feature-check{
-  color:#b8935f;
+  color:green;
 }
 
 /* ================= BUTTON ================= */
 
 .pr-cta{
   width:100%;
-  padding:15px;
-  background:#ffffff;
-  color:#171310;
-  border:1px solid #d8d8d8;
+  padding:17px;
+  background:#fff;
+  color:black;
+  border: #fff;
   border-radius:12px;
   font-size:14.5px;
   font-weight:600;
   cursor:pointer;
-
   display:flex;
   align-items:center;
   justify-content:center;
   gap:8px;
-
   transition:.3s;
+  text-align: justify;
 }
 
 .pr-cta:hover{
-  background:#171310;
-  color:#ffffff;
+  background:#5B3765;
+  color: #fff;
 }
 
 .pr-card-featured .pr-cta{
-  background:#ffffff;
-  color:#171310;
-  border:1px solid #d8d8d8;
+  background:#5B3765;
+  color:#ffffff;
+  border:1px solid #5B3765;
 }
 
 .pr-card-featured .pr-cta:hover{
-  background:#171310;
-  color:#ffffff;
+  border-color:#BA88AE;
 }
 
 .pr-cta-arrow{

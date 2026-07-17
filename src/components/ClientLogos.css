@@ -1,12 +1,16 @@
 .section {
   width: 100%;
   padding: 20px 0 60px;
-  font-family: Arial, sans-serif;
+  font-family: Georgia, serif;
   overflow: hidden;
   margin-top: 60px;
   background: none;
   box-shadow: none;
   border-radius: 0;
+}
+
+.section *{
+  font-family: inherit;
 }
 
 .header1 {
@@ -21,8 +25,7 @@
 
 .tagline {
   display: block;
-  font-family: 'Courier New', monospace;
-  color: #96723f;
+  color: #9E6899;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 3px;
@@ -31,7 +34,6 @@
 
 .title {
   display: block;
-  font-family: Georgia, serif;
   font-size: 52px;
   font-weight: 500;
   color: #171310;
@@ -43,7 +45,7 @@
   display: block;
   width: 70px;
   height: 4px;
-  background: #b8935f;
+  background:  #9E6899;
   border-radius: 2px;
   margin: 0 auto 20px;  
 }
@@ -52,10 +54,11 @@
   display: block;
   font-size: 16px;
   color: #5c554c;
-  max-width: 600px;
+  max-width: 625px;
   margin: 0 auto;
   line-height: 1.7;
   font-style: italic;
+  text-align: justify;
 }
 
 /* ===== SLIDER ===== */
@@ -157,14 +160,13 @@
 }
 
 .cardTitle {
-  font-family: Georgia, serif;
   font-size: 19px;
   font-weight: 600;
   color: #ffffff;
   margin: 0 0 10px;
   padding-bottom: 8px;
   display: inline-block;
-  border-bottom: 2px solid #d4ac7a;
+  border-bottom: 2px solid #9E6899;
 
   text-shadow: 0 3px 10px rgba(0,0,0,.8);
 }
@@ -174,6 +176,7 @@
   color: rgba(255,255,255,.95);
   line-height: 1.7;
   margin: 0;
+  text-align: justify;
 
   text-shadow: 0 2px 8px rgba(0,0,0,.8);
 }
@@ -208,7 +211,7 @@
 
 .arrowLeft:hover,
 .arrowRight:hover {
-  background: #b8935f;
+  background: #5B3765;
   color: #fff;
   transform: scale(1.1);
 }
@@ -223,8 +226,7 @@
 
 .quoteMark {
   font-size: 80px;
-  color: #b8935f;
-  font-family: Georgia, serif;
+  color: #9E6899;
   line-height: 1;
   opacity: 0.6;
   display: inline;
@@ -233,28 +235,27 @@
 }
 
 .quoteText {
-  font-family: Georgia, serif;
   font-size: 22px;
   font-style: italic;
   color: #171310;
   line-height: 1.8;
   margin: 0 0 24px;
   display: inline;
+  text-align: justify;
 }
 
 .quoteLine {
   width: 60px;
   height: 3px;
-  background: #b8935f;
+  background: #9E6899;
   border-radius: 2px;
   margin: 24px auto 16px;
 }
 
 .quoteAuthor {
-  font-family: Arial, sans-serif;
   font-size: 14px;
   font-weight: 600;
-  color: #96723f;
+  color: #9E6899;
   letter-spacing: 2px;
   text-transform: uppercase;
   display: block;

@@ -38,20 +38,20 @@ function Contact() {
           <div className="contact-details-list">
             <div className="contact-item">
               <span className="contact-item-label"> Email</span>
-              <a href="Km@khadijaMubarik.com" className="contact-item-value">Km@khadijaMubarik.com</a>
+              <a href="mailto:Km@khadijaMubarik.com" className="contact-item-value">Km@khadijaMubarik.com</a>
             </div>
             <div className="contact-item">
               <span className="contact-item-label">Phone</span>
-              <a href="tel:+923001234567" className="contact-item-value">+92 321 6420575</a>
+              <a href="tel:+923216420575" className="contact-item-value">+92 321 6420575</a>
             </div>
             <div className="location-item">
               <span className="location-item-label">Location</span>
-              <a href="lahore" className="contact-item-value">Lahore, Pakistan</a>
+              <a href="#lahore" className="contact-item-value">Lahore, Pakistan</a>
             </div>
           </div>
         </div>
 
-        {/* Right Side: Luxury Minimalist Form */}
+        {/* Right Side: Form with Beautiful Pink/Lavender Gradient */}
         <div className="contact-form-panel">
           <form onSubmit={handleSubmit}>
             <div className="form-grid">
@@ -94,7 +94,7 @@ function Contact() {
               />
             </div>
 
-            {/* Message/Project Scope Field */}
+            {/* Message Field */}
             <div className="input-group">
               <label>Tell us about your requirements</label>
               <textarea 
@@ -110,7 +110,7 @@ function Contact() {
             {/* Premium Gold Button */}
             <button type="submit" className="submit-btn">
               <span>Send Message</span>
-              <span className="btn-arrow">→</span>
+              <span className="btn-arrow"></span>
             </button>
           </form>
         </div>
