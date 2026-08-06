@@ -56,14 +56,10 @@
     margin-left:110px
 }
 
-.nav-links li{
-    display:flex;
-    align-items:center;
-}
 
 /* Responsive */
 
-@media(max-width:860px){
+@media(max-width:768px){
 
     .header{
         width:92%;
@@ -83,10 +79,6 @@
         font-size:9px;
     }
 
-}
-@media (max-width: 860px){
-  .header{ width: 90%; padding: 0 20px; }
-  .nav-links{ display: none; }
 }
 
 /* ============ MOBILE MENU STYLING ============ */

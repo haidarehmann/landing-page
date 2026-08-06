@@ -3,7 +3,7 @@ import "./style.css";
 
 /** 
  * Generic Button
- * variant: "submit" | "pricing" | "marquee" | "cta-primary" | "cta-secondary"
+ * variant: "submit" | "pricing" | "marquee" | "cta-primary" | "cta-secondary" | "get-started"
  */
 export function Button({
   variant = "submit",
@@ -22,6 +22,7 @@ export function Button({
     marquee: "btn-marquee",
     "cta-primary": "btn-cta-primary",
     "cta-secondary": "btn-cta-secondary",
+    "get-started": "btn-get-started",
   }[variant];
 
   return (
@@ -88,17 +89,23 @@ export function DotButton({ active = false, onClick, ariaLabel }) {
 
 /**
  * Get Started Button (Header CTA)
+ * Now just a thin wrapper around the generic Button so there's a single
+ * source of truth for button markup/behavior, while keeping its own
+ * dedicated CSS class (btn-get-started) since its styling is intentionally
+ * different from btn-cta-primary/secondary (compact header CTA vs. large
+ * hero CTA).
  */
-export function GetStartedButton({ onClick, className = "", ...rest }) {
+export function GetStartedButton({ onClick, className = "", children, ...rest }) {
   return (
-    <button
+    <Button
       type="button"
-      className={`btn btn-get-started ${className}`}
+      variant="get-started"
+      className={className}
       onClick={onClick}
       {...rest}
     >
-      Get Started
-    </button>
+      {children || "Get Started"}
+    </Button>
   );
 }
 
