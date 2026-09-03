@@ -1,0 +1,56 @@
+/* Hide the default cursor everywhere (desktop only) */
+@media (hover: hover) and (pointer: fine){
+  body{
+    cursor: none;
+  }
+}
+
+.nh-cursor-dot,
+.nh-cursor-ring{
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+}
+
+.nh-cursor-dot{
+  width: 8px;
+  height: 8px;
+  background: #8b5cf6;
+  box-shadow: 0 0 8px rgba(139,92,246,0.9);
+  transition: opacity 0.2s ease;
+}
+
+.nh-cursor-ring{
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid #8b5cf6;
+  filter: drop-shadow(0 0 6px rgba(139,92,246,0.6));
+  transition: width 0.25s ease, height 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+/* click feedback */
+.nh-cursor-ring.nh-cursor-active{
+  width: 26px;
+  height: 26px;
+  background: rgba(139,92,246,0.15);
+}
+
+/* hover on links/buttons — ring grows, like reference */
+.nh-cursor-ring.nh-cursor-hover{
+  width: 54px;
+  height: 54px;
+  background: rgba(139,92,246,0.1);
+  border-color: #a78bfa;
+}
+
+/* hide custom cursor on touch devices */
+@media (hover: none), (pointer: coarse){
+  .nh-cursor-dot,
+  .nh-cursor-ring{
+    display: none;
+  }
+}

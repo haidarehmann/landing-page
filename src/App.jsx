@@ -1,18 +1,38 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from './assets/vite.svg';
-import heroImg from './assets/hero.png';
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
 import Header from "./components/header/header";
+import CustomCursor from "./pages/customcursor/customcursor";
+
 import Home from "./pages/home/home";
+import About from "./pages/about/about";
+import Features from "./pages/features/features";
+
 import Footer from "./components/footer/footer";
 
-function App() {
+function AppContent() {
+  const location = useLocation();
+
   return (
     <>
       <Header />
-      <Home />
+      <CustomCursor />
+
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/features" element={<Features />} />
+      </Routes>
+
       <Footer />
     </>
+  );
+}
+
+function App() {
+  return (
+    <BrowserRouter>
+      <AppContent />
+    </BrowserRouter>
   );
 }
 

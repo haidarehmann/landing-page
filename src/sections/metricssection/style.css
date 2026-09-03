@@ -1,0 +1,837 @@
+/* =========================================
+   MAIN SECTION
+========================================= */
+
+.kh-strat-root {
+  position: relative;
+
+  padding: 85px 20px;
+
+  color: #0a0e23;
+
+  border-top: 1px solid rgba(139, 92, 246, 0.2);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  overflow: hidden;
+
+  background: #ffffff;
+}
+
+
+/* =========================================
+   REMOVE BACKGROUND DECORATION
+========================================= */
+
+.kh-strat-root::before {
+  display: none;
+}
+
+
+/* =========================================
+   HEADING BLOCK
+========================================= */
+
+.kh-heading-block {
+  width: 100%;
+  max-width: 700px;
+
+  text-align: center;
+
+  margin-bottom: 42px;
+}
+
+
+/* =========================================
+   CORE POSITIONING LINE
+========================================= */
+
+.kh-tag {
+  display: block;
+
+  width: 0;
+  height: 2px;
+
+  margin: 0 auto 15px;
+
+  background: #8b5cf6;
+
+  opacity: 0;
+
+  overflow: hidden;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================
+   CORE POSITIONING ANIMATION
+========================================= */
+
+.is-active .kh-tag {
+  animation: khCoreLine 0.65s ease-out forwards;
+
+  animation-delay: 0.05s;
+}
+
+
+@keyframes khCoreLine {
+
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  100% {
+    width: 120px;
+    opacity: 1;
+  }
+
+}
+
+
+/* =========================================
+   MAIN HEADING
+========================================= */
+
+.kh-main-heading {
+
+  font-size: clamp(25px, 3.2vw, 36px);
+
+  font-weight: 800;
+
+  line-height: 1.15;
+
+  margin: 8px 0;
+
+  letter-spacing: -0.6px;
+
+  text-align: center;
+}
+
+
+/* =========================================
+   PERSONAL BRAND STRATEGY
+========================================= */
+
+.kh-type-line {
+
+  display: inline-block;
+
+  opacity: 0;
+
+  transform: translateY(8px);
+
+  color: #0a0e23;
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================
+   KHADIJA MUBARAK
+========================================= */
+
+.kh-glow-purple {
+
+  display: inline-block;
+
+  background: linear-gradient(
+    135deg,
+    #a78bfa 0%,
+    #8b5cf6 100%
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  background-clip: text;
+
+  opacity: 0;
+
+  transform: translateY(8px);
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+.kh-sub-tag {
+
+  font-size: 14px;
+
+  color: #6b7280;
+
+  font-weight: 500;
+
+  opacity: 0;
+
+  transform: translateY(7px);
+
+  margin-top: 7px;
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================
+   CONTINUOUS TEXT ANIMATION
+========================================= */
+
+/*
+   Flow:
+
+   0.05s  → Core line starts
+   0.70s  → Main text starts
+   0.82s  → Purple text follows
+   1.35s  → Subtitle appears
+   2.20s  → Card starts
+*/
+
+
+/* =========================================
+   PERSONAL BRAND STRATEGY
+========================================= */
+
+.is-active .kh-type-line {
+
+  animation:
+    khTextReveal
+    0.48s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+
+  animation-delay: 0.72s;
+}
+
+
+/* =========================================
+   FOR KHADIJA MUBARAK
+========================================= */
+
+.is-active .kh-glow-purple {
+
+  animation:
+    khTextReveal
+    0.48s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+
+  animation-delay: 0.84s;
+}
+
+
+/* =========================================
+   SUBTITLE
+========================================= */
+
+.is-active .kh-sub-tag {
+
+  animation:
+    khTextReveal
+    0.42s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+
+  animation-delay: 1.35s;
+}
+
+
+/* =========================================
+   TEXT REVEAL
+========================================= */
+
+@keyframes khTextReveal {
+
+  0% {
+    opacity: 0;
+
+    transform: translateY(8px);
+  }
+
+  70% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================
+   FEATURE CONTAINER
+========================================= */
+
+.kh-feature-container {
+
+  width: 100%;
+
+  max-width: 680px;
+
+  background: rgba(13, 18, 48, 0.7);
+
+  border: 1px solid rgba(139, 92, 246, 0.3);
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter: blur(12px);
+
+  border-radius: 18px;
+
+  padding: 24px;
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35);
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  will-change: transform, opacity;
+}
+
+
+/* =========================================
+   CARD REVEAL
+========================================= */
+
+.is-active .kh-feature-container {
+
+  animation:
+    khFeatureReveal
+    0.65s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+
+  animation-delay: 2.05s;
+}
+
+
+@keyframes khFeatureReveal {
+
+  0% {
+    opacity: 0;
+
+    transform: translateY(10px);
+  }
+
+  65% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================
+   TOGGLE BAR
+========================================= */
+
+.kh-toggle-bar {
+
+  display: flex;
+
+  gap: 10px;
+
+  background: rgba(255, 255, 255, 0.04);
+
+  padding: 5px;
+
+  border-radius: 10px;
+
+  margin-bottom: 20px;
+}
+
+
+/* =========================================
+   TAB BUTTON
+========================================= */
+
+.kh-tab-btn {
+
+  flex: 1;
+
+  background: transparent;
+
+  border: none;
+
+  color: #a9adc4;
+
+  padding: 10px 12px;
+
+  font-size: 12px;
+
+  font-weight: 600;
+
+  border-radius: 7px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+
+/* =========================================
+   TAB HOVER
+========================================= */
+
+.kh-tab-btn:hover {
+
+  color: #ffffff;
+
+  background: rgba(139, 92, 246, 0.12);
+}
+
+
+/* =========================================
+   ACTIVE TAB
+========================================= */
+
+.kh-tab-btn.active {
+
+  background: #8b5cf6;
+
+  color: #ffffff;
+
+  box-shadow:
+    0 4px 18px rgba(139, 92, 246, 0.35);
+}
+
+
+/* =========================================
+   DISPLAY CARD
+========================================= */
+
+.kh-display-card {
+
+  width: 100%;
+}
+
+
+/* =========================================
+   CARD BODY
+========================================= */
+
+.kh-card-body h3 {
+
+  font-size: 20px;
+
+  margin: 10px 0;
+
+  color: #ffffff;
+}
+
+
+.kh-card-body p {
+
+  color: #a9adc4;
+
+  line-height: 1.55;
+
+  font-size: 13px;
+
+  margin-bottom: 0;
+}
+
+
+/* =========================================
+   CARD BADGE
+========================================= */
+
+.kh-card-badge {
+
+  display: inline-block;
+
+  background: rgba(139, 92, 246, 0.2);
+
+  color: #a78bfa;
+
+  font-size: 10px;
+
+  font-weight: 600;
+
+  padding: 4px 10px;
+
+  border-radius: 10px;
+}
+
+
+/* =========================================
+   ORANGE BADGE
+========================================= */
+
+.kh-badge-orange {
+
+  background: rgba(249, 115, 22, 0.2);
+
+  color: #fb923c;
+}
+
+
+/* =========================================
+   STATUS PILL
+========================================= */
+
+.kh-status-pill {
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 7px;
+
+  margin-top: 16px;
+
+  font-size: 11px;
+
+  color: #8b5cf6;
+
+  font-weight: 600;
+}
+
+
+.kh-pill-orange {
+
+  color: #fb923c;
+}
+
+
+/* =========================================
+   PULSE DOT
+========================================= */
+
+.kh-pulse-dot {
+
+  width: 7px;
+
+  height: 7px;
+
+  background: #8b5cf6;
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 7px #8b5cf6;
+
+  flex-shrink: 0;
+}
+
+
+.kh-pulse-dot.orange {
+
+  background: #fb923c;
+
+  box-shadow:
+    0 0 7px #fb923c;
+}
+
+
+/* =========================================
+   CARD CONTENT CHANGE
+========================================= */
+
+.kh-fade-in {
+
+  animation:
+    fadeInCard
+    0.35s
+    ease-in-out;
+}
+
+
+@keyframes fadeInCard {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(5px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+  }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 860px) {
+
+  .kh-strat-root {
+
+    padding: 75px 18px;
+  }
+
+
+  .kh-heading-block {
+
+    max-width: 650px;
+
+    margin-bottom: 38px;
+  }
+
+
+  .kh-feature-container {
+
+    max-width: 650px;
+  }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+  .kh-strat-root {
+
+    padding: 65px 16px;
+  }
+
+
+  .kh-heading-block {
+
+    margin-bottom: 34px;
+  }
+
+
+  .kh-tag {
+
+    height: 2px;
+
+    margin-bottom: 13px;
+  }
+
+
+  .is-active .kh-tag {
+
+    animation-duration: 0.55s;
+  }
+
+
+  .kh-main-heading {
+
+    font-size: clamp(
+      22px,
+      6.5vw,
+      30px
+    );
+
+    line-height: 1.15;
+
+    letter-spacing: -0.45px;
+
+    margin: 7px 0;
+  }
+
+
+  .kh-sub-tag {
+
+    font-size: 13px;
+
+    margin-top: 6px;
+  }
+
+
+  .kh-feature-container {
+
+    padding: 18px;
+
+    border-radius: 16px;
+  }
+
+
+  .kh-toggle-bar {
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    margin-bottom: 17px;
+  }
+
+
+  .kh-tab-btn {
+
+    width: 100%;
+
+    font-size: 11px;
+
+    padding: 9px;
+  }
+
+
+  .kh-card-body h3 {
+
+    font-size: 18px;
+  }
+
+
+  .kh-card-body p {
+
+    font-size: 12px;
+
+    line-height: 1.5;
+  }
+
+
+  .kh-status-pill {
+
+    font-size: 10px;
+
+    margin-top: 13px;
+  }
+
+}
+
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+  .kh-strat-root {
+
+    padding: 55px 14px;
+  }
+
+
+  .kh-heading-block {
+
+    margin-bottom: 30px;
+  }
+
+
+  .kh-tag {
+
+    margin-bottom: 12px;
+  }
+
+
+  .kh-main-heading {
+
+    font-size: 23px;
+
+    letter-spacing: -0.35px;
+  }
+
+
+  .kh-sub-tag {
+
+    font-size: 12.5px;
+  }
+
+
+  .kh-feature-container {
+
+    padding: 15px;
+
+    border-radius: 14px;
+  }
+
+
+  .kh-card-body h3 {
+
+    font-size: 17px;
+  }
+
+
+  .kh-card-body p {
+
+    font-size: 12px;
+  }
+
+
+  .kh-tab-btn {
+
+    padding: 8px;
+
+    font-size: 10.5px;
+  }
+
+
+  .kh-status-pill {
+
+    font-size: 9.5px;
+  }
+
+}
+
+
+/* =========================================
+   EXTRA SMALL MOBILE
+========================================= */
+
+@media (max-width: 360px) {
+
+  .kh-main-heading {
+
+    font-size: 21px;
+  }
+
+
+  .kh-sub-tag {
+
+    font-size: 12px;
+  }
+
+
+  .kh-feature-container {
+
+    padding: 13px;
+  }
+
+}
+
+
+/* =========================================
+   REDUCED MOTION
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .kh-tag,
+  .kh-type-line,
+  .kh-glow-purple,
+  .kh-sub-tag,
+  .kh-feature-container {
+
+    opacity: 1 !important;
+
+    transform: none !important;
+
+    animation: none !important;
+  }
+
+}

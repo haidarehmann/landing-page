@@ -1,339 +1,512 @@
 .section {
+  --color-accent-services: #6c4cf1;
+  --color-accent-services-dark: #4b2fd1;
+
   width: 100%;
   padding: 20px 0 60px;
+
   font-family: var(--font-serif);
+
   overflow: hidden;
+
   margin-top: 60px;
-  background: none;
+
+   background: #ffffff !important;
+
   box-shadow: none;
   border-radius: 0;
 }
 
-.section *{
+.section * {
   font-family: inherit;
 }
 
-.header1 {
-  display: block;             
-  text-align: center;
-  margin-bottom: 50px;
-  padding: 0 20px;
-  background: none;
-  box-shadow: none;
-  border-radius: 0;
-}
-
-.tagline {
-  display: block;
-  color: var(--color-accent);
-  font-size: 14px;
-  font-weight: 600;
-  letter-spacing: 3px;
-  margin-bottom: 10px;
-}
-
-.title {
-  display: block;
-  font-size: 52px;
-  font-weight: 500;
-  color: var(--color-text-dark);
-  margin: 0 0 12px;
-  line-height: 1;
-}
-
-.underline1 {
-  display: block;
-  width: 70px;
-  height: 4px;
-  background: var(--color-accent);
-  border-radius: 2px;
-  margin: 0 auto 20px;  
-}
-
-.subtitle {
-  display: block;
-  font-size: 16px;
-  color: var(--color-text-body);
-  max-width: 625px;
-  margin: 0 auto;
-  line-height: 1.7;
-  font-style: italic;
-  text-align: justify;
-}
-
-/* ===== SLIDER ===== */
-.sliderWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 16px;
-  padding: 0 20px;
-  position: relative;
-}
-
-.track {
-  display: flex;
-  gap: 16px;
-  margin-top: 20px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none;
-  padding: 20px 4px 30px;
-  align-items: center;
-}
-
-.track::-webkit-scrollbar {
-  display: none;
-}
-
-.cardSmall {
-  min-width: 220px;
-  max-width: 220px;
-  height: 280px;
-  overflow: hidden;
-  border-radius: 14px;
-  position: relative;
-  flex-shrink: 0;
-  scroll-snap-align: center;
-  transition: all 0.35s ease;
-  box-shadow: 0 12px 30px var(--color-shadow-black-strong);
-}
-
-.cardSmall:hover {
-  transform: translateY(-5px);
-}
-
-.cardBig {
-  min-width: 300px;
-  max-width: 300px;
-  height: 350px;
-  overflow: hidden;
-  border-radius: 14px;
-  position: relative;
-  flex-shrink: 0;
-  scroll-snap-align: center;
-  transition: all 0.35s ease;
-  box-shadow: 0 20px 45px var(--color-shadow-black-heavy);
-}
-
-.cardBig:hover {
-  transform: translateY(-7px);
-}
-
-.imgBox {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-}
-
-.imgBox img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: all 0.4s ease;
-  filter: blur(1px) brightness(0.72);
-}
-.cardSmall:hover .imgBox img,
-.cardBig:hover .imgBox img {
-  transform: scale(1.05);
-  filter: blur(0.8px) brightness(0.78);
-}
-
-.overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 20px 16px;
-
-  background: linear-gradient(
-    to top,
-    rgba(0,0,0,0.55) 0%,
-    rgba(0,0,0,0.30) 45%,
-    rgba(0,0,0,0.05) 100%
-  );
-}
-
-.cardTitle {
-  font-size: 19px;
-  font-weight: 600;
-  color: var(--color-text-white);
-  margin: 0 0 10px;
-  padding-bottom: 8px;
-  display: inline-block;
-  border-bottom: 2px solid var(--color-accent);
-
-  text-shadow: 0 3px 10px rgba(0,0,0,.8);
-}
-
-.cardDesc {
-  font-size: 13px;
-  color: rgba(255,255,255,.95);
-  line-height: 1.7;
+html,
+body,
+#root {
+  background: #ffffff !important;
   margin: 0;
-  text-align: justify;
-
-  text-shadow: 0 2px 8px rgba(0,0,0,.8);
+  padding: 0;
 }
 
-/* ===== QUOTE ===== */
-.quoteSection {
-  text-align: center;
-  padding: 30px 200px;
-  max-width: 100%;
-  margin: 20px 0 0;
+
+.section::before,
+.section::after {
+  background: transparent !important;
+  box-shadow: none !important;
 }
 
-.quoteMark {
-  font-size: 80px;
-  color: var(--color-accent);
-  line-height: 1;
-  opacity: 0.6;
-  display: inline;
-  margin-right: 8px;
-  vertical-align: middle;
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.heroWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 60px;
+
+  padding: 0 60px;
 }
 
-.quoteText {
-  font-size: 22px;
-  font-style: italic;
-  color: var(--color-text-dark);
-  line-height: 1.8;
-  margin: 0 0 24px;
-  display: inline;
-  text-align: justify;
+
+/* =========================================================
+   LEFT CONTENT
+========================================================= */
+
+.heroLeft {
+  flex: 1;
+
+  max-width: 480px;
 }
 
-.quoteLine {
-  width: 60px;
-  height: 3px;
-  background: var(--color-accent);
-  border-radius: 2px;
-  margin: 24px auto 16px;
-}
+.heroTag {
+  display: flex;
+  align-items: center;
 
-.quoteAuthor {
-  font-size: 14px;
+  gap: 10px;
+
+  color: var(--color-accent-services);
+
+  font-size: 13px;
+
   font-weight: 600;
-  color: var(--color-accent);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  display: block;
+
+  letter-spacing: 3px;
+
+  margin-bottom: 18px;
 }
 
-/* ============================================================
-   RESPONSIVE BREAKPOINTS
-   ============================================================ */
+.heroTag::before {
+  content: "";
+
+  width: 28px;
+  height: 2px;
+
+  background: var(--color-accent-services);
+}
+
+.heroTitle {
+  font-size: 48px;
+
+  font-weight: 600;
+
+  line-height: 1.1;
+
+  margin: 0 0 20px;
+
+  background:
+    linear-gradient(
+      100deg,
+      #241b47 15%,
+      var(--color-accent-services) 85%
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.heroSubtitle {
+  font-size: 16px;
+
+  color: var(--color-text-body);
+
+  line-height: 1.7;
+
+  margin: 0 0 32px;
+
+  max-width: 420px;
+}
+
+.heroButtons {
+  display: flex;
+
+  gap: 14px;
+}
+
+.btnPrimary {
+  background: var(--color-accent-services);
+
+  color: #fff;
+
+  border: none;
+
+  padding: 14px 30px;
+
+  border-radius: 40px;
+
+  font-weight: 600;
+
+  font-size: 15px;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 14px 28px
+    rgba(108, 76, 241, 0.35);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 18px 34px
+    rgba(108, 76, 241, 0.45);
+}
+
+
+/* =========================================================
+   COLLAGE AREA
+========================================================= */
+
+.heroRight {
+  position: relative;
+
+  flex: 1;
+
+  max-width: 570px;
+
+  height: 460px;
+
+  perspective: 1400px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+/* =========================================================
+   COLLAGE STAGE
+========================================================= */
+
+.collageStage {
+  position: relative;
+
+  width: 100%;
+
+  height: 100%;
+
+  transform-style: preserve-3d;
+
+  isolation: isolate;
+}
+
+
+/* =========================================================
+   EACH IMAGE CARD
+========================================================= */
+
+.collageImg {
+  position: absolute;
+
+  overflow: hidden;
+
+  border-radius: 17px;
+
+  background: #fff;
+
+  border: 4px solid #fff;
+
+  box-shadow:
+    0 12px 25px rgba(36, 27, 71, 0.13),
+    0 4px 10px rgba(36, 27, 71, 0.08);
+
+  cursor: pointer;
+
+  will-change: transform;
+
+  transform-origin: center center;
+
+  transition:
+    box-shadow 0.3s ease;
+}
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+.collageImg img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  user-select: none;
+
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   REFERENCE-LIKE POSITIONS
+========================================================= */
+
+/*
+   TOP LEFT
+*/
+
+.collage1 {
+  width: 31%;
+  height: 29%;
+
+  top: 6%;
+  left: 4%;
+
+  z-index: 3;
+}
+
+
+/*
+   TOP RIGHT / LARGE
+*/
+
+.collage2 {
+  width: 54%;
+  height: 39%;
+
+  top: 10%;
+  right: 0;
+
+  z-index: 4;
+}
+
+
+/*
+   MIDDLE LEFT
+*/
+
+.collage3 {
+  width: 43%;
+  height: 34%;
+
+  top: 35%;
+  left: 7%;
+
+  z-index: 5;
+}
+
+
+/*
+   BOTTOM CENTER
+*/
+
+.collage4 {
+  width: 42%;
+  height: 34%;
+
+  bottom: 2%;
+  left: 31%;
+
+  z-index: 2;
+}
+
+
+/*
+   MIDDLE / BOTTOM RIGHT
+*/
+
+.collage5 {
+  width: 39%;
+  height: 31%;
+
+  bottom: 13%;
+  right: -1%;
+
+  z-index: 6;
+}
+
+
+/* =========================================================
+   HOVER EFFECT
+========================================================= */
+
+/*
+   IMPORTANT:
+
+   Jab kisi ek image par hover hoga,
+   sirf woh card upar aayega.
+*/
+
+.collageImg:hover {
+  box-shadow:
+    0 25px 50px rgba(36, 27, 71, 0.24),
+    0 8px 18px rgba(36, 27, 71, 0.12);
+
+  z-index: 100 !important;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
 
 @media (max-width: 1279px) {
-  .title { font-size: 44px; }
-  .quoteSection { padding: 30px 100px; }
-  .quoteText { font-size: 20px; }
+
+  .heroTitle {
+    font-size: 42px;
+  }
+
+  .heroWrapper {
+    gap: 35px;
+  }
+
 }
+
+
+/* =========================================================
+   TABLET
+========================================================= */
 
 @media (max-width: 1023px) {
-  .title { font-size: 38px; }
-  .subtitle { font-size: 15px; }
 
-  .cardSmall {
-    min-width: 190px;
-    max-width: 190px;
-    height: 250px;
+  .heroWrapper {
+    flex-direction: column;
+
+    padding: 0 24px;
   }
 
-  .cardBig {
-    min-width: 260px;
-    max-width: 260px;
-    height: 310px;
+  .heroLeft {
+    max-width: 100%;
+
+    text-align: center;
   }
 
-  .quoteSection { padding: 30px 60px; }
-  .quoteText { font-size: 18px; }
-  .quoteMark { font-size: 60px; }
+  .heroTag {
+    justify-content: center;
+  }
+
+  .heroSubtitle {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .heroButtons {
+    justify-content: center;
+  }
+
+  .heroRight {
+    width: 100%;
+
+    max-width: 560px;
+
+    height: 400px;
+
+    margin: 30px auto 0;
+  }
+
 }
 
-@media (max-width: 899px) {
-  .section { margin-top: -20px; }
-  .title { font-size: 34px; }
-  .header { margin-bottom: 36px; }
 
-  .cardSmall {
-    min-width: 170px;
-    max-width: 170px;
-    height: 230px;
+/* =========================================================
+   SMALL TABLET
+========================================================= */
+
+@media (max-width: 899px) {
+
+  .section {
+    margin-top: -20px;
   }
 
-  .cardBig {
-    min-width: 230px;
-    max-width: 230px;
+  .heroTitle {
+    font-size: 34px;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 767px) {
+
+  .section {
+    padding: 16px 0 40px;
+
+    margin-top: 65px;
+  }
+
+  .heroWrapper {
+    padding: 0 16px;
+  }
+
+  .heroTitle {
+    font-size: 28px;
+  }
+
+  .heroSubtitle {
+    font-size: 14px;
+  }
+
+  .heroRight {
+    height: 330px;
+
+    margin-top: 25px;
+  }
+
+  .collageImg {
+    border-width: 3px;
+
+    border-radius: 13px;
+  }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 480px) {
+
+  .heroTitle {
+    font-size: 24px;
+  }
+
+  .heroRight {
     height: 285px;
   }
 
-  .cardTitle { font-size: 14px; }
-  .cardDesc { font-size: 11px; }
+  .btnPrimary {
+    padding: 12px 22px;
 
-  .quoteSection { padding: 24px 40px; }
-  .quoteText { font-size: 16px; }
-  .quoteMark { font-size: 50px; }
+    font-size: 14px;
+  }
+
+  .collageImg {
+    border-radius: 11px;
+  }
+
 }
 
-@media (max-width: 767px) {
-  .section { padding: 16px 0 40px; margin-top: 65px; }
-  .header { margin-bottom: 28px; padding: 0 16px; }
 
-  .title { font-size: 28px; }
-  .tagline { font-size: 12px; letter-spacing: 2px; }
-  .subtitle { font-size: 14px; }
+/* =========================================================
+   VERY SMALL
+========================================================= */
 
-  .sliderWrapper { gap: 8px; padding: 0 8px; }
+@media (max-width: 360px) {
 
-  .cardSmall,
-  .cardBig {
-    min-width: 200px;
-    max-width: 200px;
+  .heroTitle {
+    font-size: 22px;
+  }
+
+  .heroRight {
     height: 260px;
   }
 
-  .track { gap: 12px; padding: 12px 4px 20px; }
-
-  .cardTitle { font-size: 14px; }
-  .cardDesc { font-size: 11px; line-height: 1.5; }
-
-  .quoteSection { padding: 20px 20px; }
-  .quoteText { font-size: 15px; line-height: 1.7; }
-  .quoteMark { font-size: 44px; }
-  .quoteAuthor { font-size: 12px; }
 }
 
-@media (max-width: 480px) {
-  .title { font-size: 24px; }
-  .subtitle { font-size: 13px; }
-
-  .cardSmall,
-  .cardBig {
-    min-width: 170px;
-    max-width: 170px;
-    height: 230px;
-  }
-
-  .cardTitle { font-size: 13px; }
-  .cardDesc { font-size: 10px; }
-
-  .quoteSection { padding: 16px 16px; }
-  .quoteText { font-size: 13px; }
-  .quoteMark { font-size: 36px; }
-}
-
-@media (max-width: 360px) {
-  .title { font-size: 22px; }
-
-  .cardSmall,
-  .cardBig {
-    min-width: 150px;
-    max-width: 150px;
-    height: 210px;
-  }
-}

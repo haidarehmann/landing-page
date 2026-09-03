@@ -1,93 +1,223 @@
-.header{
-    width:95%;
-    height:85px;
-    margin:20px auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:0 40px;
-    border-radius:55px;
-    background:rgba(255,255,255,0.7);
-    backdrop-filter:blur(18px);
-    -webkit-backdrop-filter:blur(18px);
-    border:1px solid var(--color-header-border);
-    box-shadow:0 10px 30px var(--color-shadow-black-soft);
-    position:sticky;
-    top:35px;
-    z-index:100;
+.nh-header{
+  --nh-bg: #0a0e23;
+  --nh-purple: #8b5cf6;
+  --nh-purple-dark: #6d3fd6;
+  --nh-white: #f5f6fa;
+  --nh-muted: #a9adc4;
+
+  position: fixed;
+  top: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  z-index: 100;
+
+  width: 92%;
+  height: 78px;
+
+  margin: 0;
+  padding: 0 40px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 20px;
+
+  background: rgba(20, 20, 30, 0.55);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+
+  font-family: var(--font-sans, sans-serif);
 }
 
-.mobile-only-btn {
+.nh-header *{
+  box-sizing: border-box;
+}
+
+.nh-header.nh-header-hidden{
+  transform: translateX(-50%) translateY(-140%);
+}
+
+
+/* ===== Logo ===== */
+
+.nh-logo{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  height: 100%;
+}
+
+.nh-logo-img{
+  height: 300px;
+  margin-left: -10px;
+  width: auto;
+  max-width: 220px;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 8px rgba(139, 92, 246, 0.25));
+  transition: transform 0.2s ease;
+}
+
+.nh-logo:hover .nh-logo-img{
+  transform: scale(1.04);
+}
+
+.nh-logo h2{
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--nh-white);
+  line-height: 1.2;
+  margin: 0;
+}
+
+.nh-logo p{
+  font-size: 12px;
+  color: var(--nh-muted);
+  margin-top: 3px;
+}
+
+
+/* ===== Nav links ===== */
+
+.nh-nav-links{
+  display: flex;
+  list-style: none;
+  gap: 34px;
+  margin: 0;
+  padding: 0;
+}
+
+.nh-nav-links li{
+  position: relative;
+  border-radius: 999px;
+}
+
+.nh-nav-links li a,
+.nh-nav-links li button{
+  position: relative;
+  z-index: 2;
+  background: none;
+  border: none;
+  color: var(--nh-muted);
+  font-size: 14.5px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 18px;
+  border-radius: 999px;
+  transition: color 0.2s ease;
+}
+
+.nh-nav-links li a:hover,
+.nh-nav-links li button:hover{
+  color: var(--nh-white);
+}
+
+.nh-nav-links li.active a,
+.nh-nav-links li.active button{
+  color: var(--nh-white);
+}
+
+/* Sliding active pill (Framer Motion isko layoutId se position karta hai) */
+.nh-active-pill{
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+}
+
+
+/* ===== Desktop / Mobile Buttons ===== */
+
+.nh-mobile-only-btn{
   display: none;
 }
 
-.desktop-only-btn {
+.nh-desktop-only-btn{
   display: inline-block;
 }
 
-/* Logo */
 
-.logo{
-    display:flex;
-    flex-direction:column;
-    cursor:pointer;
+/* ===== Get Started Button ===== */
+
+.nh-desktop-only-btn button,
+.nh-mobile-only-btn button{
+  background: var(--nh-purple-dark);
+  color: #fff;
+  border: none;
+  padding: 12px 24px;
+  font-size: 13.5px;
+  font-weight: 600;
+  border-radius: 8px;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
 }
 
-.logo h2{
-    font-size:28px;
-    font-weight:700;
-    color: var(--color-primary);
-    line-height:1.2;
-}
-
-.logo p{
-    font-size:13px;
-    color: var(--color-text-gray);
-    font-family: var(--font-serif);
-    margin-top:3px;
-}
-
-/* Navigation */
-
-.nav-links{
-    display:flex;
-    list-style:none;
-    gap:40px;
-    margin-left:110px
+.nh-desktop-only-btn button:hover,
+.nh-mobile-only-btn button:hover{
+  transform: translateY(-2px);
+  background: var(--nh-purple);
+  box-shadow: 0 8px 20px rgba(139,92,246,0.35);
 }
 
 
-/* Responsive */
+/* =====================================================
+   MOBILE
+===================================================== */
 
-@media(max-width:768px){
+@media (max-width: 768px){
 
-    .header{
-        width:92%;
-        padding:20px;
-        height:auto;
-    }
+  .nh-header{
+    position: fixed;
+    top: 15px;
+    left: 50%;
+    transform: translateX(-50%);
 
-    .nav-links{
-        display:none;
-    }
+    width: 90%;
+    height: auto;
 
-    .logo h2{
-        font-size:18px;
-    }
+    padding: 16px 20px;
 
-    .logo p{
-        font-size:9px;
-    }
+    border-radius: 16px;
+  }
 
-}
+  .nh-logo-img{
+    height: 46px;
+    max-width: 160px;
+  }
 
-/* ============ MOBILE MENU STYLING ============ */
-@media (max-width: 768px) {
-  .desktop-only-btn {
+  .nh-header.nh-header-hidden{
+    transform: translateX(-50%) translateY(-140%);
+  }
+
+  .nh-nav-links{
     display: none;
   }
 
-  .nav-links {
+  .nh-logo h2{
+    font-size: 17px;
+  }
+
+  .nh-logo p{
+    font-size: 9px;
+  }
+
+  .nh-desktop-only-btn{
+    display: none;
+  }
+
+  /* Mobile dropdown */
+
+  .nh-nav-links{
     position: absolute;
     top: calc(100% + 12px);
     left: 50%;
@@ -98,35 +228,48 @@
     gap: 0;
     max-height: 0;
     overflow: hidden;
-    background: rgba(255, 255, 255, 0.95);
+
+    background: rgba(10, 14, 35, 0.92);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-    border: 1px solid var(--color-header-border);
+
+    border: 1px solid rgba(139, 92, 246, 0.25);
     border-radius: 24px;
-    box-shadow: 0 15px 35px var(--color-shadow-black-medium);
-    transition: max-height 0.35s ease, padding 0.35s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+
+    transition:
+      max-height 0.35s ease,
+      padding 0.35s ease;
   }
 
-  .nav-links.open {
+  .nh-nav-links.open{
     display: flex;
     max-height: 500px;
     padding: 1rem 0;
   }
 
-  .nav-links li {
+  .nh-nav-links li{
     width: 100%;
-    justify-content: center;
+    text-align: center;
+    padding: 12px 0;
+    border-radius: 0;
   }
 
-  .nav-links li:not(.mobile-only-btn) {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  .nh-nav-links li:not(.nh-mobile-only-btn){
+    border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
-  .nav-links li:last-child {
+  .nh-nav-links li:last-child{
     border-bottom: none;
   }
 
-  .mobile-only-btn {
+  .nh-nav-links li.active a,
+  .nh-nav-links li.active button{
+    color: var(--nh-purple);
+    font-weight: 600;
+  }
+
+  .nh-mobile-only-btn{
     display: flex;
     justify-content: center;
     width: 100%;

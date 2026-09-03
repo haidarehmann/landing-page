@@ -1,197 +1,1309 @@
-.coasts-root {
-  font-family: var(--font-serif);
-  padding: 60px 20px;
-  text-align: center;
-  margin-top: 50px;
-  box-sizing: border-box;
+/* =========================================================
+   PRODUCTS SECTION
+   PREMIUM GSAP + FRAMER MOTION AI SYSTEM
+========================================================= */
+
+/* Color variables also declared on :root so the product
+   modal (portaled to document.body via createPortal, so it
+   is no longer a descendant of .products-section) still
+   resolves the exact same colors as before. Values are
+   untouched — same theme as originally used. */
+:root {
+  --products-bg: #080b1d;
+  --products-bg-2: #0d1230;
+  --products-white: #f5f6fa;
+  --products-muted: #a9adc4;
+  --products-purple: #8b5cf6;
+  --products-purple-dark: #6d3fd6;
+  --products-purple-light: #b59cff;
 }
 
-.coasts-root *{
-  box-sizing: border-box;
-  font-family: inherit;
-}
-
-.coasts-title-area {
-  max-width: 600px;
-  margin: 0 auto 40px;
-  padding: 0 10px;
-}
-
-.coasts-tag {
-  font-size: 12px;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--color-accent);
-  margin-bottom: 10px;
-  display: block;
-}
-
-.coasts-heading {
-  font-weight: 500;
-  font-size: clamp(24px, 4.5vw, 34px);
-  color: var(--color-text-dark);
-  margin: 0 0 15px 0;
-}
-
-.underline4 {
-  width: 50px;
-  height: 3px;
-  background: var(--color-accent);
-  border-radius: 2px;
-  margin: 0 auto 20px;
-}
-
-.coasts-text {
-  font-size: 16px;
-  line-height: 1.6;
-  color: var(--color-text-body);
-  margin: 0;
-  text-align: justify;
-}
-
-/* Grid instead of slider */
-.coasts-grid {
-  display: flex;
-  align-items: stretch;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 1100px;
-  margin: 0 auto;
-  gap: 24px;
-}
-
-.coasts-box {
+.products-section {
+  --products-bg: #080b1d;
+  --products-bg-2: #0d1230;
+  --products-white: #f5f6fa;
+  --products-muted: #a9adc4;
+  --products-purple: #8b5cf6;
+  --products-purple-dark: #6d3fd6;
+  --products-purple-light: #b59cff;
+  --products-accent: #3b82f6;
   position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  color: var(--products-white);
+  /* Base fallback color only — the animated gradient has been
+     removed so the p5.mp4 background video underneath reads
+     clearly. The .products-video-overlay div handles contrast
+     for the text/UI sitting on top of the video. */
+  background: #080b1d;
   overflow: hidden;
-
-  flex: 1 1 300px;
-  max-width: 350px;
-  min-width: 0;
-
-  padding: 44px 32px;
-  border-radius: 20px;
-
-  background: linear-gradient(160deg, var(--color-bg-white) 0%, var(--color-bg-light) 55%, #f5d4ec 100%);
-  border: 1px solid var(--color-border-medium);
-
-  box-shadow:
-    0 10px 30px var(--color-shadow-soft),
-    0 2px 8px rgba(91, 55, 101, 0.04);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
-              border-color 0.4s ease;
+  perspective: 1200px;
 }
 
-.coasts-box::before{
+/* =========================================================
+   BACKGROUND
+========================================================= */
+
+.products-background {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.background-grid {
+  display: none !important;
+}
+
+/* =========================================================
+   BACKGROUND VIDEO (p5.mp4)
+========================================================= */
+
+.products-bg-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.products-video-overlay {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(8, 11, 29, 0.55);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* =========================================================
+   AMBIENT GLOWS
+========================================================= */
+
+.background-glow {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.45;
+  z-index: 2;
+  will-change: transform, opacity;
+}
+
+.background-glow-one {
+  width: 500px;
+  height: 500px;
+  right: -160px;
+  top: 15%;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.22),
+    transparent 70%
+  );
+}
+
+.background-glow-two {
+  width: 380px;
+  height: 380px;
+  left: -180px;
+  bottom: -100px;
+  background: radial-gradient(
+    circle,
+    rgba(109, 63, 214, 0.18),
+    transparent 70%
+  );
+}
+
+.background-glow-three {
+  width: 250px;
+  height: 250px;
+  left: 42%;
+  top: 30%;
+  background: radial-gradient(
+    circle,
+    rgba(167, 139, 250, 0.08),
+    transparent 70%
+  );
+}
+
+/* =========================================================
+   PARTICLES
+========================================================= */
+
+.background-particles {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.background-particles span {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.55);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.65);
+  opacity: 0;
+  will-change: transform, opacity;
+}
+
+.background-particles span:nth-child(1) { left: 8%; top: 70%; }
+.background-particles span:nth-child(2) { left: 15%; top: 25%; }
+.background-particles span:nth-child(3) { left: 23%; top: 80%; }
+.background-particles span:nth-child(4) { left: 31%; top: 35%; }
+.background-particles span:nth-child(5) { left: 39%; top: 68%; }
+.background-particles span:nth-child(6) { left: 46%; top: 18%; }
+.background-particles span:nth-child(7) { left: 54%; top: 76%; }
+.background-particles span:nth-child(8) { left: 62%; top: 30%; }
+.background-particles span:nth-child(9) { left: 70%; top: 64%; }
+.background-particles span:nth-child(10) { left: 77%; top: 20%; }
+.background-particles span:nth-child(11) { left: 83%; top: 48%; }
+.background-particles span:nth-child(12) { left: 90%; top: 75%; }
+.background-particles span:nth-child(13) { left: 95%; top: 32%; }
+.background-particles span:nth-child(14) { left: 18%; top: 55%; }
+.background-particles span:nth-child(15) { left: 58%; top: 52%; }
+.background-particles span:nth-child(16) { left: 12%; top: 42%; }
+.background-particles span:nth-child(17) { left: 27%; top: 15%; }
+.background-particles span:nth-child(18) { left: 36%; top: 88%; }
+.background-particles span:nth-child(19) { left: 48%; top: 58%; }
+.background-particles span:nth-child(20) { left: 66%; top: 82%; }
+.background-particles span:nth-child(21) { left: 74%; top: 43%; }
+.background-particles span:nth-child(22) { left: 88%; top: 15%; }
+.background-particles span:nth-child(23) { left: 93%; top: 60%; }
+.background-particles span:nth-child(24) { left: 5%; top: 38%; }
+.background-particles span:nth-child(25) { left: 42%; top: 45%; }
+.background-particles span:nth-child(26) { left: 57%; top: 25%; }
+.background-particles span:nth-child(27) { left: 69%; top: 12%; }
+.background-particles span:nth-child(28) { left: 81%; top: 88%; }
+.background-particles span:nth-child(29) { left: 33%; top: 52%; }
+.background-particles span:nth-child(30) { left: 52%; top: 92%; }
+
+/* =========================================================
+   LIGHT LINES
+========================================================= */
+
+.background-light-line {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.15),
+    rgba(167, 139, 250, 0.65),
+    rgba(139, 92, 246, 0.15),
+    transparent
+  );
+  opacity: 0.75;
+  transform-origin: left center;
+  filter: drop-shadow(0 0 7px rgba(139, 92, 246, 0.4));
+  z-index: 2;
+  will-change: transform, opacity;
+}
+
+.background-light-line::after {
+  content: "›";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: rgba(167, 139, 250, 0.9);
+  font-size: 17px;
+  font-weight: 300;
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.9);
+}
+
+.line-one {
+  width: 34%;
+  left: -5%;
+  top: 24%;
+  transform: rotate(-12deg);
+}
+
+.line-two {
+  width: 42%;
+  right: -8%;
+  top: 39%;
+  transform: rotate(14deg);
+}
+
+.line-three {
+  width: 30%;
+  left: 35%;
+  bottom: 17%;
+  transform: rotate(-7deg);
+}
+
+.line-one::before,
+.line-two::before,
+.line-three::before {
   content: "";
   position: absolute;
-  top: 0;
-  left: 0;
+  top: -2px;
+  width: 60px;
+  height: 4px;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(167, 139, 250, 0.9),
+    transparent 70%
+  );
+  filter: blur(2px);
+  opacity: 0.75;
+}
+
+/* =========================================================
+   AMBIENT ORBS
+========================================================= */
+
+.products-bg-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
+  filter: blur(35px);
+  will-change: transform;
+}
+
+.products-orb-one {
+  width: 520px;
+  height: 520px;
+  right: -190px;
+  top: 5%;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.26),
+    rgba(109, 63, 214, 0.08) 45%,
+    transparent 72%
+  );
+}
+
+.products-orb-two {
+  width: 430px;
+  height: 430px;
+  left: -220px;
+  bottom: -190px;
+  background: radial-gradient(
+    circle,
+    rgba(109, 63, 214, 0.20),
+    rgba(139, 92, 246, 0.05) 45%,
+    transparent 72%
+  );
+}
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.products-container {
+  position: relative;
+  z-index: 3;
   width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--color-primary-light), var(--color-primary));
+  max-width: 1500px;
+  min-height: 100vh;
+  min-height: 100svh;
+  margin: 0 auto;
+  padding: 90px 6vw;
+  display: grid;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 7vw;
+  align-items: center;
 }
 
-.coasts-box:hover{
-  transform: translateY(-8px);
-  border-color: var(--color-border-hover-strong);
-  box-shadow:
-    0 20px 45px var(--color-shadow-stronger),
-    0 4px 14px var(--color-shadow-medium);
-}
-.coasts-box:hover::before{
-  transform: scaleX(1);
-}
+/* =========================================================
+   SIDEBAR
+========================================================= */
 
-.card-desc {
-  font-size: 16px;
-  line-height: 1.7;
-  color: var(--color-text-body);
-  margin: 0 0 30px 0;
-  font-weight: 450;
-  text-align: justify;
-}
-
-.card-footer {
+.products-sidebar {
+  position: relative;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  justify-content: center;
+  perspective: 900px;
 }
 
-.user-badge {
-  width: 54px;
-  height: 54px;
-  background: linear-gradient(135deg, var(--color-primary-light), var(--color-primary));
-  color: var(--color-text-white);
-  font-weight: bold;
-  font-size: 16px;
-  border-radius: 14px;
+/* =========================================================
+   HEADING
+========================================================= */
+
+.products-heading {
+  margin-bottom: 35px;
+  will-change: transform, opacity;
+}
+
+.products-heading span {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  margin-bottom: 14px;
+
+  color: var(--products-purple-light);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+}
+
+.products-heading span::before {
+  content: "";
+  width: 18px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--products-purple),
+    var(--products-accent, #3b82f6)
+  );
+}
+
+.products-heading h2 {
+  margin: 0;
+
+  font-size: clamp(40px, 5vw, 64px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.045em;
+
+  background: linear-gradient(
+    160deg,
+    #ffffff 0%,
+    #ffffff 55%,
+    var(--products-purple-light) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 0 60px rgba(139, 92, 246, 0.20);
+}
+
+/* =========================================================
+   PRODUCT LIST
+========================================================= */
+
+.product-list {
+  display: flex;
+  flex-direction: column;
+  gap: 17px;
+  width: 100%;
+}
+
+/* =========================================================
+   PRODUCT SELECTOR
+========================================================= */
+
+.product-selector {
+  position: relative;
+  width: 100%;
+  min-height: 74px;
+  display: grid;
+  grid-template-columns: 40px 1fr 32px;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 14px;
+  color: var(--products-white);
+  background: rgba(255, 255, 255, 0.018);
+  border: 1px solid transparent;
+  border-radius: 9px;
+  text-align: left;
+  cursor: pointer;
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+.product-selector::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: -8%;
+  width: 2px;
+  height: 70%;
+  background: var(--products-purple);
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.7);
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 0.16s ease;
+}
+
+.product-selector::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 0% 50%,
+    rgba(139, 92, 246, 0.13),
+    transparent 50%
+  );
+  opacity: 0;
+  transition: opacity 0.16s ease;
+  pointer-events: none;
+}
+
+.product-selector:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.09),
+    rgba(255, 255, 255, 0.018)
+  );
+  border-color: rgba(139, 92, 246, 0.20);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.product-selector:hover::before,
+.product-selector.selected::before {
+  transform: scaleY(1);
+}
+
+.product-selector:hover::after,
+.product-selector.selected::after {
+  opacity: 1;
+}
+
+.product-selector.selected {
+  background: linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.15),
+    rgba(109, 63, 214, 0.05)
+  );
+  border-color: rgba(139, 92, 246, 0.35);
+  box-shadow:
+    0 10px 30px rgba(0, 0, 0, 0.20),
+    inset 0 0 30px rgba(139, 92, 246, 0.035);
+}
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.product-number {
+  position: relative;
+  z-index: 2;
+  color: var(--products-purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.product-selector-content {
+  position: relative;
+  z-index: 2;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.product-selector-content strong {
+  color: var(--products-white);
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.product-selector-content small {
+  color: var(--products-muted);
+  font-size: 9px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.product-arrow {
+  position: relative;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 16px rgba(91, 55, 101, 0.25);
-  flex-shrink: 0;
+  color: var(--products-muted);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  font-size: 15px;
+  will-change: transform, background;
 }
 
-.user-info h3 {
-  font-size: 16px;
+.product-selector:hover .product-arrow,
+.product-selector.selected .product-arrow {
+  color: #fff;
+  background: var(--products-purple-dark);
+  border-color: var(--products-purple);
+}
+
+/* =========================================================
+   SIDEBAR LINE
+========================================================= */
+
+.products-sidebar-line {
+  width: 100%;
+  height: 1px;
+  margin-top: 30px;
+  background: linear-gradient(
+    90deg,
+    rgba(139, 92, 246, 0.55),
+    rgba(255, 255, 255, 0.06),
+    transparent
+  );
+  transform-origin: left center;
+}
+
+/* =========================================================
+   NOTE
+========================================================= */
+
+.products-sidebar-note {
+  max-width: 300px;
+  margin: 15px 0 0;
+  color: var(--products-muted);
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.products-intro {
+  position: relative;
+  min-height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: left;
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   INTRO GLASS CARD
+   Replaces the old 3D orbit-ring visual. A clean glass panel
+   that sits well on top of the p5.mp4 background video —
+   readable, premium, and consistent with the CTA section's
+   purple/blue theme.
+
+   - width bumped 460px -> 500px and heading font-size reduced
+     below so "Intelligence designed / for better decisions."
+     settles cleanly onto exactly 2 lines.
+   - margin-left: auto added so the card sits pushed toward
+     the right side of its column instead of centered.
+========================================================= */
+
+.intro-glass-card {
+  position: relative;
+
+  width: 100%;
+  max-width: 500px;
+  margin-left: auto;
+  margin-top: 80px;
+
+  padding: 44px 38px;
+
+  border-radius: 20px;
+
+  border: 1px solid rgba(139, 92, 246, 0.22);
+
+  background:
+    linear-gradient(
+      160deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.015)
+    );
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.35),
+    0 0 60px rgba(139, 92, 246, 0.10),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+
+  will-change: transform, opacity;
+}
+
+.intro-glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    rgba(139, 92, 246, 0.55),
+    rgba(59, 130, 246, 0.15) 40%,
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+.intro-glass-card::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.9),
+    rgba(59, 130, 246, 0.6),
+    transparent
+  );
+  filter: blur(0.5px);
+  pointer-events: none;
+}
+
+/* =========================================================
+   EYEBROW LABEL
+========================================================= */
+
+.intro-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  color: var(--products-purple-light);
+  font-size: 10px;
   font-weight: 700;
-  color: var(--color-text-dark);
-  margin: 0 0 3px 0;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
 }
 
-.user-info h5 {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--color-text-muted-alt);
+.intro-eyebrow::before {
+  content: "";
+  width: 16px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    var(--products-purple),
+    transparent
+  );
+}
+
+/* =========================================================
+   HEADING
+   font-size reduced from clamp(28px, 3.2vw, 42px) so the
+   "Intelligence designed / for better decisions." text fits
+   cleanly onto 2 lines inside the wider glass card above.
+========================================================= */
+
+.intro-heading {
   margin: 0;
+
+  font-size: clamp(24px, 2.6vw, 34px);
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+
+  background: linear-gradient(
+    155deg,
+    #ffffff 0%,
+    #ffffff 45%,
+    var(--products-purple-light) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  text-shadow: 0 0 50px rgba(139, 92, 246, 0.25);
 }
 
-/* Tablet */
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.intro-description {
+  max-width: 380px;
+  margin: 18px 0 0;
+
+  color: var(--products-muted);
+  font-size: 13px;
+  line-height: 1.75;
+}
+
 @media (max-width: 860px) {
-  .coasts-grid{ gap: 18px; }
-  .coasts-box{ padding: 36px 26px; max-width: none; flex: 1 1 45%; }
-}
-
-/* Mobile */
-@media (max-width: 600px) {
-  .coasts-root{ padding: 45px 12px; }
-
-  .coasts-grid {
-    flex-direction: column;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .coasts-box {
-    padding: 28px 22px;
-    border-radius: 16px;
-    width: 100%;
-    max-width: 420px;
-  }
-
-  .card-desc {
-    font-size: 14.5px;
-    margin-bottom: 24px;
-  }
-
-  .user-badge{
-    width: 44px;
-    height: 44px;
-    font-size: 14px;
+  .intro-glass-card {
+    max-width: 92%;
+    margin-left: 0;
+    padding: 34px 26px;
   }
 }
 
-@media (max-width: 380px) {
-  .coasts-root{ padding: 35px 8px; }
-  .coasts-box{ padding: 22px 16px; border-radius: 14px; }
-  .card-desc{ font-size: 13.5px; }
-  .coasts-heading{ font-size: 22px; }
+/* =========================================================
+   PRODUCT OVERLAY
+   Rendered via a React portal directly into document.body
+   (see Coast.js). This overlay itself scrolls (overflow-y:
+   auto) instead of the old overflow:hidden + align-items:
+   center combo, which used to clip the top of the panel
+   whenever it was taller than the viewport with no way to
+   scroll and see the rest of it.
+========================================================= */
+
+.product-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;   /* column so margin:auto on the panel can center it */
+  align-items: center;
+  padding: 20px;
+  background: rgba(5, 7, 20, 0.86);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  overflow-y: auto;         /* overlay itself can now scroll */
+  -webkit-overflow-scrolling: touch;
+  perspective: 1400px;
+}
+
+/* =========================================================
+   DETAIL PANEL
+========================================================= */
+
+.product-detail-panel {
+  position: relative;
+  width: min(760px, 88vw);
+  max-width: 760px;
+  max-height: 90vh;
+  margin: auto 0;      /* centers when it fits; shrinks to 0 (full scroll) when it doesn't */
+  flex-shrink: 0;      /* never let flex squeeze the panel smaller than its content */
+  padding: 22px 24px;
+  border: 1px solid rgba(139, 92, 246, 0.24);
+  border-radius: 15px;
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      rgba(139, 92, 246, 0.10),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(13, 18, 48, 0.98),
+      rgba(10, 14, 35, 0.98)
+    );
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.55),
+    0 0 80px rgba(139, 92, 246, 0.08);
+  overflow-y: auto;
+  transform-style: preserve-3d;
+}
+
+.product-detail-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle at 80% 20%,
+    rgba(139, 92, 246, 0.06),
+    transparent 30%
+  );
+  pointer-events: none;
+}
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.product-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.025);
+  cursor: pointer;
+  z-index: 20;
+  will-change: transform;
+}
+
+.product-close:hover {
+  background: rgba(139, 92, 246, 0.15);
+  border-color: rgba(139, 92, 246, 0.45);
+}
+
+.product-close span {
+  position: absolute;
+  width: 14px;
+  height: 1px;
+  background: var(--products-white);
+}
+
+.product-close span:first-child {
+  transform: rotate(45deg);
+}
+
+.product-close span:last-child {
+  transform: rotate(-45deg);
+}
+
+/* =========================================================
+   DETAIL GRID
+========================================================= */
+
+.product-detail-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(250px, 0.75fr);
+  gap: 20px;
+  align-items: center;
+}
+
+/* =========================================================
+   INFORMATION
+========================================================= */
+
+.product-information {
+  min-width: 0;
+}
+
+.detail-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.detail-number {
+  color: var(--products-purple);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.detail-label {
+  color: var(--products-muted);
+  font-size: 8px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.detail-product-name {
+  margin: 0;
+  color: var(--products-white);
+  font-size: clamp(20px, 2vw, 26px);
+  line-height: 1;
+  font-weight: 700;
+  letter-spacing: -0.055em;
+}
+
+.detail-tagline {
+  margin: 8px 0 0;
+  color: var(--products-purple-light);
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.detail-description {
+  max-width: 360px;
+  margin: 11px 0 0;
+  color: var(--products-muted);
+  font-size: 10px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   FUNCTIONS
+========================================================= */
+
+.functions-heading {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.functions-heading span {
+  width: 22px;
+  height: 1px;
+  background: var(--products-purple);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.6);
+}
+
+.functions-heading p {
+  margin: 0;
+  color: var(--products-muted);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.22em;
+}
+
+.functions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.function-item {
+  display: grid;
+  grid-template-columns: 30px 1fr;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.018);
+  will-change: transform, opacity;
+}
+
+.function-item:hover {
+  background: rgba(139, 92, 246, 0.07);
+  border-color: rgba(139, 92, 246, 0.20);
+}
+
+.function-number {
+  color: var(--products-purple);
+  font-size: 8px;
+  font-weight: 700;
+  padding-top: 2px;
+}
+
+.function-content h4 {
+  margin: 0;
+  color: var(--products-white);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.function-content p {
+  margin: 4px 0 0;
+  color: var(--products-muted);
+  font-size: 9px;
+  line-height: 1.5;
+}
+
+/* =========================================================
+   VIDEO
+========================================================= */
+
+.product-video-side {
+  min-width: 0;
+  max-width: 360px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.video-3d-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 360px;
+  margin: 0 auto;
+  padding: 5px;
+  perspective: 1200px;
+}
+
+.video-glow {
+  position: absolute;
+  inset: 10% 5%;
+  background: radial-gradient(
+    ellipse,
+    rgba(139, 92, 246, 0.30),
+    transparent 68%
+  );
+  filter: blur(45px);
+  pointer-events: none;
+  will-change: transform, opacity;
+}
+
+.video-frame {
+  position: relative;
+  width: 100%;
+  border: 1px solid rgba(139, 92, 246, 0.30);
+  border-radius: 11px;
+  background: #080b1d;
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    0 0 50px rgba(139, 92, 246, 0.08);
+  overflow: hidden;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.video-top-bar {
+  height: 30px;
+  display: grid;
+  grid-template-columns: 45px 1fr 45px;
+  align-items: center;
+  gap: 6px;
+  padding: 0 9px;
+  color: var(--products-muted);
+  background: rgba(255, 255, 255, 0.025);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 7px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.video-dots {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.video-dots span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.20);
+}
+
+.video-dots span:nth-child(2) {
+  background: rgba(139, 92, 246, 0.65);
+  box-shadow: 0 0 7px rgba(139, 92, 246, 0.55);
+}
+
+.video-status {
+  text-align: right;
+  color: var(--products-purple-light);
+}
+
+/* =========================================================
+   VIDEO CONTAINER
+========================================================= */
+
+.video-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: #050713;
+  overflow: hidden;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  background: #050713;
+}
+
+/* =========================================================
+   VIDEO LABEL
+========================================================= */
+
+.video-overlay-label {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 5px 7px;
+  color: rgba(255, 255, 255, 0.78);
+  background: rgba(10, 14, 35, 0.70);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  border-radius: 5px;
+  backdrop-filter: blur(8px);
+  font-size: 6px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  pointer-events: none;
+}
+
+/* =========================================================
+   VIDEO BOTTOM
+========================================================= */
+
+.video-bottom-bar {
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 9px;
+  color: var(--products-muted);
+  background: rgba(255, 255, 255, 0.018);
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 6px;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+}
+
+.video-bottom-bar span:last-child {
+  color: var(--products-purple);
+}
+
+/* =========================================================
+   VIDEO DESCRIPTION
+========================================================= */
+
+.video-description {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 8px;
+  padding: 0 6px;
+}
+
+.video-description > span {
+  flex-shrink: 0;
+  color: var(--products-purple);
+  font-size: 7px;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+}
+
+.video-description p {
+  margin: 0;
+  color: var(--products-muted);
+  font-size: 8px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   SCROLLBAR
+========================================================= */
+
+.product-detail-panel::-webkit-scrollbar {
+  width: 4px;
+}
+
+.product-detail-panel::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.product-detail-panel::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.40);
+  border-radius: 10px;
+}
+
+.product-detail-panel::-webkit-scrollbar-thumb:hover {
+  background: rgba(139, 92, 246, 0.65);
+}
+
+/* =========================================================
+   FOCUS
+========================================================= */
+
+.product-selector:focus-visible,
+.product-close:focus-visible {
+  outline: 2px solid var(--products-purple);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   SELECTION
+========================================================= */
+
+.products-section ::selection {
+  color: #fff;
+  background: rgba(139, 92, 246, 0.45);
+}
+
+/* =========================================================
+   TABLET 1100
+========================================================= */
+
+@media (max-width: 1100px) {
+  .products-container {
+    grid-template-columns: 0.8fr 1.2fr;
+    gap: 5vw;
+    padding: 85px 5vw;
+  }
+
+  .product-detail-panel {
+    width: min(720px, 90vw);
+    padding: 21px 22px;
+  }
+
+  .product-detail-grid {
+    gap: 18px;
+  }
+
+  .product-video-side,
+  .video-3d-wrapper {
+    max-width: 320px;
+  }
+
+  .intro-3d-ring {
+    width: 225px;
+    height: 225px;
+  }
+
+  .ai-orbit-system {
+    width: 200px;
+    height: 200px;
+  }
+
+  .ring-orbit-outer {
+    width: 165px;
+    height: 165px;
+    margin-left: -82.5px;
+    margin-top: -82.5px;
+  }
+
+  .ring-orbit-middle {
+    width: 138px;
+    height: 138px;
+    margin-left: -69px;
+    margin-top: -69px;
+  }
+
+  .ring-orbit-inner {
+    width: 108px;
+    height: 108px;
+    margin-left: -54px;
+    margin-top: -54px;
+  }
+
+  .ai-core-halo {
+    width: 130px;
+    height: 130px;
+  }
+}
+
+/* =========================================================
+   TABLET 860
+========================================================= */
+
+@media (max-width: 860px) {
+  .products-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .product-detail-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .product-overlay {
+    padding: 12px;
+  }
+
+  .product-detail-panel {
+    max-height: 94vh;
+  }
 }
