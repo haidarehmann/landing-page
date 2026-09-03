@@ -1,5 +1,5 @@
 import PPTFeatures from "../../sections/pptfeatures/pptfeatures";
-import MissionVision from "../../sections/missionvision/missionvision";
+import MissionVision from "../../sections/missionvision/missionVision";
 import Accreditation from "../../sections/accrediation/accrediation";
 
 function About() {
